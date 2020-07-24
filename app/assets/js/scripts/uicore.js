@@ -48,7 +48,7 @@ if(!isDev){
                 loggerAutoUpdaterSuccess.log('Nouvelle version disponible', info.version)
                 
                 if(process.platform === 'darwin'){
-                    info.darwindownload = `https://github.com/luuxis/harionalauncher/releases/download/v${info.version}/Hariona-Launcher-setup-${info.version}.dmg`
+                    info.darwindownload = `https://github.com/hariona-dev/harionalauncher/releases/download/v${info.version}/Hariona-Launcher-setup-${info.version}.dmg`
                     showUpdateUI(info)
                 }
                 

@@ -1,13 +1,13 @@
 {
   "name": "harionalauncher",
-  "version": "1.3.0",
+  "version": "1.0.0",
   "productName": "hariona Launcher",
   "description": "Hariona Launcher",
-  "author": "luuxis (https://github.com/luuxis/harionalauncher.git)",
+  "author": "luuxis (https://github.com/hariona-dev/harionalauncher.git)",
   "license": "UNLICENSED",
-  "homepage": "https://github.com/luuxis/harionalauncher.git",
+  "homepage": "https://github.com/hariona-dev/harionalauncher.git",
   "bugs": {
-    "url": "https://github.com/luuxis/harionalauncher/issues"
+    "url": "https://github.com/hariona-dev/harionalauncher/issues"
   },
   "private": true,
   "main": "index.js",
@@ -51,6 +51,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/luuxis/harionalauncher.git"
+    "url": "git+https://github.com/hariona-dev/harionalauncher.git"
   }
 }

@@ -1219,7 +1219,7 @@ function populateAboutVersionInformation(){
  */
 function populateReleaseNotes(){
     $.ajax({
-        url: 'https://github.com/luuxis/harionalauncher/releases.atom',
+        url: 'https://github.com/hariona-dev/harionalauncher/releases.atom',
         success: (data) => {
             const version = 'v' + remote.app.getVersion()
             const entries = $(data).find('entry')
