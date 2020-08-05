@@ -1,4 +1,4 @@
-const builder = require('electron-builder')
+const builder = require('electron-builder'
 const Platform = builder.Platform
 
 function getCurrentPlatform(){
