@@ -40,23 +40,23 @@ exports.setDataDirectory = function(dataDirectory){
 }
 
 const configPath = path.join(exports.getLauncherDirectory(), 'config.json')
+console.log(configPath)
 const configPathLEGACY = path.join(dataPath, 'config.json')
 const firstLaunch = !fs.existsSync(configPath) && !fs.existsSync(configPathLEGACY)
 
 exports.getAbsoluteMinRAM = function(){
     const mem = os.totalmem()
-    return mem >= 6000000000 ? 1 : 0.5
+    return mem >= 6000000000 ? 0.05 : 0.05
 }
 
 exports.getAbsoluteMaxRAM = function(){
     const mem = os.totalmem()
-    const gT16 = mem-16000000000
     return Math.floor((mem-1000000000)/1000000000)
 }
 
 function resolveMaxRAM(){
     const mem = os.totalmem()
-    return mem >= 8000000000 ? '1G' : (mem >= 6000000000 ? '1G' : '1G')
+    return mem >= 8000000000 ? '4G' : (mem >= 6000000000 ? '1G' : '1G')
 }
 
 function resolveMinRAM(){
@@ -103,7 +103,13 @@ const DEFAULT_CONFIG = {
     selectedServer: null, // Resolved
     selectedAccount: null,
     authenticationDatabase: {},
-    modConfigurations: []
+    modConfigurations: [],
+    whitelist:{
+        token: null,
+        status: null // {uuid, status} - Status 0 = Good, Status 1 = Bad
+    },
+    lotterybeta:{},
+    lottery:{}
 }
 
 let config = null
@@ -685,4 +691,83 @@ exports.getAllowPrerelease = function(def = false){
  */
 exports.setAllowPrerelease = function(allowPrerelease){
     config.settings.launcher.allowPrerelease = allowPrerelease
+}
+
+// Whitelist Settings
+
+/**
+ * Get the entire whitelist config
+ * 
+ * @returns {object} Whitelist config
+ */
+exports.getWhitelistData = function(){
+    return config.whitelist
+}
+
+/**
+ * Get the whitelist token
+ * 
+ * @returns {object} Whitelist Service Access Token
+ */
+exports.getWhitelistToken = function(){
+    return config.whitelist.token
+}
+
+/**
+ * Update the stored whitelist token
+ * 
+ * @param {object} token The new token to save
+ * 
+ * @returns {object} Whitelist Service Access Token
+ */
+exports.updateWhitelistToken = function(token){
+    config.whitelist.token = token
+    return config.whitelist.token
+}
+
+/**
+ * Get the currently selected authenticated account's whitelist status.
+ *  
+ * @returns {number} Status for the current selected account
+ */
+exports.getWhitelistStatus = function(){
+    return config.whitelist.status
+}
+
+/**
+ * Update the status of the current account.
+ * 
+ * @param {number} status The new status.
+ * 
+ * @returns {number} Status set
+ */
+exports.updateWhitelistStatus = function(status){
+    config.whitelist.status = status
+    return config.whitelist.status
+}
+
+// Lottery Settings
+
+/**
+ * Get the currently account's lottery status.
+ *  
+ * @returns {number} Status for the current selected account
+ */
+exports.getLotteryStatus = function(uuid){
+    if(!config.lottery.hasOwnProperty(uuid)){
+        config.lottery[uuid] = null
+    }
+    return config.lottery[uuid]
+}
+
+/**
+ * Update the status of the current account.
+ * 
+ * @param {number} status The new status.
+ * 
+ * @returns {number} Status set
+ */
+exports.updateLotteryStatus = function(uuid, status){
+    config.lottery[uuid] = status
+    return config.lottery[uuid]
 }

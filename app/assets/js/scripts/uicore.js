@@ -26,9 +26,9 @@ window.eval = global.eval = function () {
 
 // Display warning when devtools window is opened.
 remote.getCurrentWebContents().on('devtools-opened', () => {
-    console.log('%cSi quelqun vous a demandé de coller ou écrire quelque chose ici, il y a 100 chances sur 10 que ce soit une tentative de piratage.', 'font-size: 16px')
-    console.log('%cIl vaut mieux fermer cette fenêtre et retourner à la sécurité.', 'font-size: 16px')
-    console.log('%cSi vous savez ce que vous faites, vous devriez venir travailler chez nous.', 'font-size: 16px')
+    console.log('%cThe console is dark and full of terrors.', 'color: white; -webkit-text-stroke: 4px #a02d2a; font-size: 60px; font-weight: bold')
+    console.log('%cIf you\'ve been told to paste something here, you\'re being scammed.', 'font-size: 16px')
+    console.log('%cUnless you know exactly what you\'re doing, close this window.', 'font-size: 16px')
 })
 
 // Disable zoom, needed for darwin.
@@ -42,21 +42,21 @@ if(!isDev){
         switch(arg){
             case 'checking-for-update':
                 loggerAutoUpdater.log('Checking for update..')
-                settingsUpdateButtonStatus('Vérification des mises à jour...', true)
+                settingsUpdateButtonStatus('Checking for Updates..', true)
                 break
             case 'update-available':
-                loggerAutoUpdaterSuccess.log('Nouvelle version disponible', info.version)
+                loggerAutoUpdaterSuccess.log('New update available', info.version)
                 
                 if(process.platform === 'darwin'){
-                    info.darwindownload = `https://github.com/hariona-dev/harionalauncher/releases/download/v${info.version}/Hariona-Launcher-setup-${info.version}.dmg`
+                    info.darwindownload = `https://github.com/hariona-dev/harionalauncher/releases/download/v${info.version}/helioslauncher-setup-${info.version}.dmg`
                     showUpdateUI(info)
                 }
                 
                 populateSettingsUpdateInformation(info)
                 break
             case 'update-downloaded':
-                loggerAutoUpdaterSuccess.log('La mise à jour ' + info.version + ' est prête à être installée .')
-                settingsUpdateButtonStatus('Installer maintenant', false, () => {
+                loggerAutoUpdaterSuccess.log('Update ' + info.version + ' ready to be installed.')
+                settingsUpdateButtonStatus('Install Now', false, () => {
                     if(!isDev){
                         ipcRenderer.send('autoUpdateAction', 'installUpdateNow')
                     }
@@ -64,8 +64,8 @@ if(!isDev){
                 showUpdateUI(info)
                 break
             case 'update-not-available':
-                loggerAutoUpdater.log('Vous disposez déjà de la dernière version .')
-                settingsUpdateButtonStatus('Vérifier les mises à jour')
+                loggerAutoUpdater.log('No new update found.')
+                settingsUpdateButtonStatus('Check for Updates')
                 break
             case 'ready':
                 updateCheckListener = setInterval(() => {
@@ -78,7 +78,7 @@ if(!isDev){
                     if(info.code === 'ERR_UPDATER_INVALID_RELEASE_FEED'){
                         loggerAutoUpdater.log('No suitable releases found.')
                     } else if(info.code === 'ERR_XML_MISSED_ELEMENT'){
-                        loggerAutoUpdater.log('Aucune version trouvée.')
+                        loggerAutoUpdater.log('No releases found.')
                     } else {
                         loggerAutoUpdater.error('Error during update check..', info)
                         loggerAutoUpdater.debug('Error Code:', info.code)

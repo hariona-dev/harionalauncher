@@ -538,7 +538,7 @@ exports.pullRemote = function(){
     }
     return new Promise((resolve, reject) => {
         const distroURL = 'http://217.182.149.116/launcher/distribution.json'
-            const opts = {
+        const opts = {
             url: distroURL,
             timeout: 2500
         }

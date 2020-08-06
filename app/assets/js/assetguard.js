@@ -172,45 +172,22 @@ class Util {
             return true
         }
 
+        let forgeVer = null
         try {
-            
-            const forgeVer = forgeVersion.split('-')[1]
-
-            const maxFG2 = [14, 23, 5, 2847]
-            const verSplit = forgeVer.split('.').map(v => Number(v))
-
-            for(let i=0; i<maxFG2.length; i++) {
-                if(verSplit[i] > maxFG2[i]) {
-                    return true
-                } else if(verSplit[i] < maxFG2[i]) {
-                    return false
-                }
-            }
-        
-            return false
-
+            forgeVer = forgeVersion.split('-')[1]
         } catch(err) {
             throw new Error('Forge version is complex (changed).. launcher requires a patch.')
         }
-    }
 
-    static isAutoconnectBroken(forgeVersion) {
-
-        const forgeVer = forgeVersion.split('-')[1]
-
-        const minWorking = [31, 2, 15]
+        const maxFG2 = [14, 23, 5, 2847]
         const verSplit = forgeVer.split('.').map(v => Number(v))
 
-        if(verSplit[0] === 31) {
-            for(let i=0; i<minWorking.length; i++) {
-                if(verSplit[i] > minWorking[i]) {
-                    return false
-                } else if(verSplit[i] < minWorking[i]) {
-                    return true
-                }
+        for(let i=0; i<maxFG2.length; i++) {
+            if(verSplit[i] > maxFG2[i]) {
+                return true
             }
         }
-
+        
         return false
     }
 
@@ -278,7 +255,7 @@ class JavaGuard extends EventEmitter {
 
         const sanitizedOS = process.platform === 'win32' ? 'windows' : (process.platform === 'darwin' ? 'mac' : process.platform)
 
-        const url = `http://217.182.149.116/launcher/java/jre-${major}u51-${sanitizedOS}-x64.json`
+        const url = `https://api.adoptopenjdk.net/v2/latestAssets/nightly/openjdk${major}?os=${sanitizedOS}&arch=x64&heap_size=normal&openjdk_impl=hotspot&type=jre`
         
         return new Promise((resolve, reject) => {
             request({url, json: true}, (err, resp, body) => {
@@ -1499,26 +1476,25 @@ class AssetGuard extends EventEmitter {
                         for(let sub of ob.getSubModules()){
                             if(sub.getType() === DistroManager.Types.VersionManifest){
                                 resolve(JSON.parse(fs.readFileSync(sub.getArtifact().getPath(), 'utf-8')))
-                                return
                             }
                         }
-                        reject('No forge version manifest found!')
-                        return
+                        console.warn('No forge version manifest found! Assuming we are running vanilla.')
+                        return resolve(null)
                     } else {
                         let obArtifact = ob.getArtifact()
                         let obPath = obArtifact.getPath()
                         let asset = new DistroModule(ob.getIdentifier(), obArtifact.getHash(), obArtifact.getSize(), obArtifact.getURL(), obPath, type)
                         try {
                             let forgeData = await AssetGuard._finalizeForgeAsset(asset, self.commonPath)
-                            resolve(forgeData)
+                            return resolve(forgeData)
                         } catch (err){
-                            reject(err)
+                            return reject(err)
                         }
-                        return
                     }
                 }
             }
-            reject('No forge module found!')
+            console.warn('No forge module found! Assuming we are running vanilla...')
+            return resolve(null)
         })
     }
 

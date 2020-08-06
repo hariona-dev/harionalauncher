@@ -1,9 +1,9 @@
-<p><img  src="./app/assets/images/backgrounds/logo.png" height="130px" alt="hariona"></p>
+<p><img  src="./app/assets/images/logo.png" height="130px" alt="hariona"></p>
 
 <h1>hariona Launcher</h1>
 
 <p>
-    <img src="https://img.shields.io/badge/version-1.1.0-dark_green.svg?style=for-the-badge" alt="version">
+    <img src="https://img.shields.io/badge/version-1.1.1-dark_green.svg?style=for-the-badge" alt="version">
 </p>
 
 ---

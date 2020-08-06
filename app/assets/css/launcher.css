@@ -242,7 +242,6 @@ body, button {
     display: flex;
     flex-direction: column;
 }
-
 .cloudTop {
     height: 50%;
     width: 100%;
@@ -250,7 +249,6 @@ body, button {
     animation: clouds1 80s linear infinite;
     background-size: cover;
 }
-
 .cloudBottom {
     height: 50%;
     width: 100%;
@@ -258,7 +256,6 @@ body, button {
     animation: clouds2 70s linear infinite;
     background-size: cover;
 }
-
 @keyframes clouds1 {
     to {
         background-position: 200%;
@@ -760,7 +757,6 @@ body, button {
     border-bottom-color: rgba(255, 255, 255, 0.50);
     animation: single2 4s infinite linear;
 }
-
 @keyframes single2 {
     0% {
         transform: rotate(0deg);

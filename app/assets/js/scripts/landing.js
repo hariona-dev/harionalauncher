@@ -144,17 +144,17 @@ function updateSelectedServer(serv){
     }
     ConfigManager.setSelectedServer(serv != null ? serv.getID() : null)
     ConfigManager.save()
-    server_selection_button.innerHTML = '\u2022 '
+    server_selection_button.innerHTML = '\u2022 ' + (serv != null ? serv.getName() : 'No Server Selected')
     if(getCurrentView() === VIEWS.settings){
         animateModsTabRefresh()
     }
     setLaunchEnabled(serv != null)
 }
 // Real text is set in uibinder.js on distributionIndexDone.
-server_selection_button.innerHTML = '\u2022 Loading..'
+server_selection_button.innerHTML = ''
 server_selection_button.onclick = (e) => {
     e.target.blur()
-   // toggleServerSelection(true)
+    toggleServerSelection(true)
 }
 
 // Update Mojang Status Color
@@ -213,7 +213,7 @@ const refreshMojangStatuses = async function(){
     
     document.getElementById('mojangStatusEssentialContainer').innerHTML = tooltipEssentialHTML
     document.getElementById('mojangStatusNonEssentialContainer').innerHTML = tooltipNonEssentialHTML
-    //document.getElementById('mojang_status_icon').style.color = Mojang.statusToHex(status)
+    document.getElementById('mojang_status_icon').style.color = Mojang.statusToHex(status)
 }
 
 const refreshServerStatus = async function(fade = false){
@@ -323,7 +323,7 @@ function asyncSystemScan(mcVersion, launchAfter = true){
                 // Show this information to the user.
                 setOverlayContent(
                     'No Compatible<br>Java Installation Found',
-                    'In order to join WesterosCraft, you need a 64-bit installation of Java 8. Would you like us to install a copy? By installing, you accept <a href="http://www.oracle.com/technetwork/java/javase/terms/license/index.html">Oracle\'s license agreement</a>.',
+                    'In order to join the community servers, you need a 64-bit installation of Java 8. Would you like us to install a copy? By installing, you accept <a href="http://www.oracle.com/technetwork/java/javase/terms/license/index.html">Oracle\'s license agreement</a>.',
                     'Install Java',
                     'Install Manually'
                 )
@@ -338,7 +338,7 @@ function asyncSystemScan(mcVersion, launchAfter = true){
                         //$('#overlayDismiss').toggle(false)
                         setOverlayContent(
                             'Java is Required<br>to Launch',
-                            'A valid x64 installation of Java 8 is required to launch.<br><br>Please refer to our <a href="https://github.com/hariona-dev/harionalauncher/wiki/Java-Management#manually-installing-a-valid-version-of-java">Java Management Guide</a> for instructions on how to manually install Java.',
+                            'A valid x64 installation of Java 8 is required to launch.<br><br>Please refer to our <a href="https://github.com/dscalzi/HeliosLauncher/wiki/Java-Management#manually-installing-a-valid-version-of-java">Java Management Guide</a> for instructions on how to manually install Java.',
                             'I Understand',
                             'Go Back'
                         )
@@ -384,7 +384,7 @@ function asyncSystemScan(mcVersion, launchAfter = true){
                 // User will have to follow the guide to install Java.
                 setOverlayContent(
                     'Unexpected Issue:<br>Java Download Failed',
-                    'Unfortunately we\'ve encountered an issue while attempting to install Java. You will need to manually install a copy. Please check out our <a href="https://github.com/hariona-dev/harionalauncher/wiki">Troubleshooting Guide</a> for more details and instructions.',
+                    'Unfortunately we\'ve encountered an issue while attempting to install Java. You will need to manually install a copy. Please check out our <a href="https://github.com/dscalzi/HeliosLauncher/wiki">Troubleshooting Guide</a> for more details and instructions.',
                     'I Understand'
                 )
                 setOverlayHandler(() => {
@@ -467,8 +467,7 @@ let hasRPC = false
 // Joined server regex
 const SERVER_JOINED_REGEX = /\[.+\]: \[CHAT\] [a-zA-Z0-9_]{1,16} joined the game/
 const GAME_JOINED_REGEX = /\[.+\]: Skipping bad option: lastServer:/
-const GAME_LAUNCH_REGEX = /^\[.+\]: (?:MinecraftForge .+ Initialized|ModLauncher .+ starting: .+)$/
-const MIN_LINGER = 5000
+const GAME_LAUNCH_REGEX = /^\[.+\]: Setting user: .+$/
 
 let aEx
 let serv
@@ -531,7 +530,6 @@ function dlAsync(login = true){
 
     // Establish communications between the AssetExec and current process.
     aEx.on('message', (m) => {
-
         if(m.context === 'validate'){
             switch(m.data){
                 case 'distribution':
@@ -630,14 +628,14 @@ function dlAsync(login = true){
             let allGood = true
 
             // If these properties are not defined it's likely an error.
-            if(m.result.forgeData == null || m.result.versionData == null){
-                loggerLaunchSuite.error('Error during validation:', m.result)
+            // if(m.result.forgeData == null || m.result.versionData == null){
+            //     loggerLaunchSuite.error('Error during validation:', m.result)
 
-                loggerLaunchSuite.error('Error during launch', m.result.error)
-                showLaunchFailure('Error During Launch', 'Please check the console (CTRL + Shift + i) for more details.')
+            //     loggerLaunchSuite.error('Error during launch', m.result.error)
+            //     showLaunchFailure('Error During Launch', 'Please check the console (CTRL + Shift + i) for more details.')
 
-                allGood = false
-            }
+            //     allGood = false
+            // }
 
             forgeData = m.result.forgeData
             versionData = m.result.versionData
@@ -648,29 +646,19 @@ function dlAsync(login = true){
                 let pb = new ProcessBuilder(serv, versionData, forgeData, authUser, remote.app.getVersion())
                 setLaunchDetails('Launching game..')
 
-                const onLoadComplete = () => {
-                    toggleLaunchArea(false)
-                    if(hasRPC){
-                        DiscordWrapper.updateDetails('Loading game..')
-                    }
-                    proc.stdout.on('data', gameStateChange)
-                    proc.stdout.removeListener('data', tempListener)
-                    proc.stderr.removeListener('data', gameErrorListener)
-                }
-                const start = Date.now()
-
                 // Attach a temporary listener to the client output.
                 // Will wait for a certain bit of text meaning that
                 // the client application has started, and we can hide
                 // the progress bar stuff.
                 const tempListener = function(data){
                     if(GAME_LAUNCH_REGEX.test(data.trim())){
-                        const diff = Date.now()-start
-                        if(diff < MIN_LINGER) {
-                            setTimeout(onLoadComplete, MIN_LINGER-diff)
-                        } else {
-                            onLoadComplete()
+                        toggleLaunchArea(false)
+                        if(hasRPC){
+                            DiscordWrapper.updateDetails('Loading game..')
                         }
+                        proc.stdout.on('data', gameStateChange)
+                        proc.stdout.removeListener('data', tempListener)
+                        proc.stderr.removeListener('data', gameErrorListener)
                     }
                 }
 
@@ -680,7 +668,7 @@ function dlAsync(login = true){
                     if(SERVER_JOINED_REGEX.test(data)){
                         DiscordWrapper.updateDetails('Exploring the Realm!')
                     } else if(GAME_JOINED_REGEX.test(data)){
-                        DiscordWrapper.updateDetails('${acc.displayName}')
+                        DiscordWrapper.updateDetails('Gaming in Mooncraft!')
                     }
                 }
 
@@ -688,7 +676,7 @@ function dlAsync(login = true){
                     data = data.trim()
                     if(data.indexOf('Could not find or load main class net.minecraft.launchwrapper.Launch') > -1){
                         loggerLaunchSuite.error('Game launch failed, LaunchWrapper was not downloaded properly.')
-                        showLaunchFailure('Error During Launch', 'The main file, LaunchWrapper, failed to download properly. As a result, the game cannot launch.<br><br>To fix this issue, temporarily turn off your antivirus software and launch the game again.<br><br>If you have time, please <a href="https://github.com/hariona-dev/harionalauncher/issues">submit an issue</a> and let us know what antivirus software you use. We\'ll contact them and try to straighten things out.')
+                        showLaunchFailure('Error During Launch', 'The main file, LaunchWrapper, failed to download properly. As a result, the game cannot launch.<br><br>To fix this issue, temporarily turn off your antivirus software and launch the game again.<br><br>If you have time, please <a href="https://github.com/MOONMOONOSS/HeliosLauncher/issues">submit an issue</a> and let us know what antivirus software you use. We\'ll contact them and try to straighten things out.')
                     }
                 }
 
@@ -859,7 +847,7 @@ let newsLoadingListener = null
  */
 function setNewsLoading(val){
     if(val){
-        const nLStr = 'Chargement de la page boutique.'
+        const nLStr = 'Checking for News'
         let dotStr = '..'
         nELoadSpan.innerHTML = nLStr + dotStr
         newsLoadingListener = setInterval(() => {

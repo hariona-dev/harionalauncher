@@ -17,6 +17,7 @@ let fatalStartupError = false
 const VIEWS = {
     landing: '#landingContainer',
     login: '#loginContainer',
+    whitelist: '#whitelistContainer',
     settings: '#settingsContainer',
     welcome: '#welcomeContainer'
 }
@@ -63,14 +64,18 @@ function showMainUI(data){
     }
 
     prepareSettings(true)
-    updateSelectedServer(data.getServer(ConfigManager.getSelectedServer()))
+   // updateSelectedServer(data.getServer(ConfigManager.getSelectedServer()))
     refreshServerStatus()
     setTimeout(() => {
-       // document.getElementById('frameBar').style.backgroundColor = 'rgba(0, 0, 0, 0.5)'
-        document.body.style.backgroundImage = `url('assets/images/backgrounds/2.jpg')`
+        document.getElementById('frameBar').style.backgroundColor = 'rgba(0, 0, 0, 0.5)'
+        document.body.style.backgroundImage = `url('assets/images/backgrounds/${document.body.getAttribute('bkid')}.jpg')`
         $('#main').show()
 
         const isLoggedIn = Object.keys(ConfigManager.getAuthAccounts()).length > 0
+        const isWhitelisted = ( isLoggedIn &&
+                                ConfigManager.getWhitelistStatus() !== null && // status exists
+                                ConfigManager.getWhitelistStatus().status === 0 && // not banned
+                                ConfigManager.getWhitelistStatus().uuid.replace(/-/g, "") === ConfigManager.getSelectedAccount().uuid.replace(/-/g, "")) // uuids match
 
         // If this is enabled in a development environment we'll get ratelimited.
         // The relaunch frequency is usually far too high.
@@ -92,9 +97,7 @@ function showMainUI(data){
         }
 
         setTimeout(() => {
-            $('#loadingContainer').fadeOut(500, () => {
-                $('#loadSpinnerImage').removeClass('rotating')
-            })
+            $('#loadingContainer').fadeOut(500)
         }, 250)
         
     }, 750)

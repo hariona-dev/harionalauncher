@@ -23,7 +23,7 @@ const loggerSuccess = LoggerUtil('%c[AuthManager]', 'color: #209b07; font-weight
  * Add an account. This will authenticate the given credentials with Mojang's
  * authserver. The resultant data will be stored as an auth account in the
  * configuration database.
- *
+ * 
  * @param {string} username The account username (email if migrated).
  * @param {string} password The account password.
  * @returns {Promise.<Object>} Promise which resolves the resolved authenticated account object.

@@ -9,7 +9,6 @@ const semver                        = require('semver')
 const url                           = require('url')
 
 // Setup auto updater.
-
 function initAutoUpdater(event, data) {
 
     if(data){
@@ -230,19 +229,3 @@ app.on('activate', () => {
         createWindow()
     }
 })
-
-/*static void UpdatePresence()
-{
-    DiscordRichPresence discordPresence;
-    memset(&discordPresence, 0, sizeof(discordPresence));
-    discordPresence.state = "Joue sur le serveur";
-    discordPresence.startTimestamp = 1507665886;
-    discordPresence.endTimestamp = 1507665886;
-    discordPresence.largeImageKey = "new_project";
-    discordPresence.largeImageText = "Numbani";
-    discordPresence.partyId = "ae488379-351d-4a4f-ad32-2b9b01c91657";
-    discordPresence.spectateSecret = "MTIzNDV8MTIzNDV8MTMyNDU0";
-    discordPresence.joinSecret = "MTI4NzM0OjFpMmhuZToxMjMxMjM= ";
-    Discord_UpdatePresence(&discordPresence);
-}
-*/

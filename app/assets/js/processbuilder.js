@@ -272,18 +272,6 @@ class ProcessBuilder {
         
     }
 
-    _processAutoConnectArg(args){
-        if(ConfigManager.getAutoConnect() && this.server.isAutoConnect()){
-            const serverURL = new URL('my://' + this.server.getAddress())
-            args.push('--server')
-            args.push(serverURL.hostname)
-            if(serverURL.port){
-                args.push('--port')
-                args.push(serverURL.port)
-            }
-        }
-    }
-
     /**
      * Construct the argument array that will be passed to the JVM process.
      * 
@@ -363,7 +351,14 @@ class ProcessBuilder {
         args = args.concat(ConfigManager.getJVMOptions())
 
         // Main Java Class
-        args.push(this.forgeData.mainClass)
+        
+        // This generally indicates that Forge is not present
+        // The mainClass will therefore be on versionData
+        // instead.
+        if (this.forgeData === null)
+            args.push(this.versionData.mainClass)
+        else
+            args.push(this.forgeData.mainClass)
 
         // Vanilla Arguments
         args = args.concat(this.versionData.arguments.game)
@@ -389,7 +384,7 @@ class ProcessBuilder {
                         // This should be fine for a while.
                         if(rule.features.has_custom_resolution != null && rule.features.has_custom_resolution === true){
                             if(ConfigManager.getFullscreen()){
-                                args[i].value = [
+                                rule.values = [
                                     '--fullscreen',
                                     'true'
                                 ]
@@ -473,24 +468,10 @@ class ProcessBuilder {
             }
         }
 
-        // Autoconnect
-        let isAutoconnectBroken
-        try {
-            isAutoconnectBroken = Util.isAutoconnectBroken(this.forgeData.id.split('-')[2])
-        } catch(err) {
-            logger.error('Forge version format changed.. assuming autoconnect works.')
-        }
-
-        if(isAutoconnectBroken) {
-            logger.error('Server autoconnect disabled on Forge 1.15.2 for builds earlier than 31.2.15 due to OpenGL Stack Overflow issue.')
-            logger.error('Please upgrade your Forge version to at least 31.2.15!')
-        } else {
-            this._processAutoConnectArg(args)
-        }
-        
-
         // Forge Specific Arguments
-        args = args.concat(this.forgeData.arguments.game)
+        // Ignore if not running Forge
+        if (this.forgeData !== null)
+            args = args.concat(this.forgeData.arguments.game)
 
         // Filter null values
         args = args.filter(arg => {
@@ -554,7 +535,15 @@ class ProcessBuilder {
         }
 
         // Autoconnect to the selected server.
-        this._processAutoConnectArg(mcArgs)
+        if(ConfigManager.getAutoConnect() && this.server.isAutoConnect()){
+            const serverURL = new URL('my://' + this.server.getAddress())
+            mcArgs.push('--server')
+            mcArgs.push(serverURL.hostname)
+            if(serverURL.port){
+                mcArgs.push('--port')
+                mcArgs.push(serverURL.port)
+            }
+        }
 
         // Prepare game resolution
         if(ConfigManager.getFullscreen()){

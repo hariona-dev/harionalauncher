@@ -1,11 +1,11 @@
 {
-  "name": "harionalauncher",
-  "version": "1.1.0",
-  "productName": "hariona Launcher",
-  "description": "Hariona Launcher",
-  "author": "luuxis (https://github.com/hariona-dev/harionalauncher.git)",
+  "name": "Hariona-launcher",
+  "version": "1.1.1",
+  "productName": "Hariona-launcher",
+  "description": "Modded Minecraft Launcher",
+  "author": "Daniel Scalzi (https://github.com/dscalzi/)",
   "license": "UNLICENSED",
-  "homepage": "https://github.com/hariona-dev/harionalauncher.git",
+  "homepage": "https://github.com/hariona-dev/harionalauncher",
   "bugs": {
     "url": "https://github.com/hariona-dev/harionalauncher/issues"
   },
@@ -19,6 +19,8 @@
     "dist:win": "npm run dist -- WINDOWS",
     "dist:mac": "npm run dist -- MAC",
     "dist:linux": "npm run dist -- LINUX",
+    "dist:all": "npm run dist:mac && npm run dist:linux && npm run dist:win",
+    "dist:zipped": "npm run dist:all && pushd ./dist && zip -r mac.zip ./mac && zip -r linux.zip ./linux-unpacked && zip -r win.zip ./win-unpacked && popd",
     "lint": "eslint --config .eslintrc.json ."
   },
   "engines": {
@@ -45,9 +47,9 @@
   },
   "devDependencies": {
     "cross-env": "^7.0.2",
-    "electron": "^9.1.0",
-    "electron-builder": "^22.6.1",
-    "eslint": "^7.4.0"
+    "electron": "^9.1.2",
+    "electron-builder": "^22.7.0",
+    "eslint": "^7.1.0"
   },
   "repository": {
     "type": "git",
