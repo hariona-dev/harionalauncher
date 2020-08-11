@@ -1,4 +1,3 @@
-// Requirements
 const os     = require('os')
 const semver = require('semver')
 
