@@ -94,21 +94,45 @@
   }
 
 
-  #home{
-    display: inline-block;
-    margin-bottom: 40px;
-    margin-top: 80px;
-    border: 2px solid #0fbcf9;
-    color: #0fbcf9;
-    padding: 18px 40px;
-    border-radius: 8px;
-    text-transform: uppercase;
-    font-weight: 500;
-    transition: .3s linear;
-  }
 
 
-  #home:hover{
-    background-color: #0fbcf9;
-    color: #fff;
-  }
+/* Settings done button styles. */
+#home {
+  background: #2d2d2d;
+  border: none;
+  text-align: left;
+  margin: 5px 10px;
+  padding: 10px 20px;
+  color:#fff;
+  cursor: pointer;
+  outline: none;
+  transition: 0.25s ease;
+}
+#home:hover,
+#home:focus {
+  text-shadow: 0px 0px 20px white, 0px 0px 20px white, 0px 0px 20px white;
+}
+#home:active {
+  text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.75), 0px 0px 20px rgba(255, 255, 255, 0.75), 0px 0px 20px rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.75);
+}
+#home:disabled {
+  color: rgba(255, 255, 255, 0.75);
+  pointer-events: none;
+}
+
+#homeBottom {
+  position: absolute;
+  top: 10%;
+}
+
+
+
+
+
+
+
+
+
+
+
