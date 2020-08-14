@@ -93,3 +93,22 @@
     }
   }
 
+
+  #home{
+    display: inline-block;
+    margin-bottom: 40px;
+    margin-top: 80px;
+    border: 2px solid #0fbcf9;
+    color: #0fbcf9;
+    padding: 18px 40px;
+    border-radius: 8px;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: .3s linear;
+  }
+
+
+  #home:hover{
+    background-color: #0fbcf9;
+    color: #fff;
+  }
