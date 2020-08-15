@@ -8,9 +8,9 @@
   }
   
   body{
-    background-color: transparent;
+    background: url('./../images/backgrounds/0.jpg') no-repeat center center fixed;
   }
-  
+
   .pricing-table{
     display: flex;
     flex-wrap: wrap;
@@ -25,7 +25,6 @@
     background-color: #fff;
     margin: 20px 10px;
     text-align: center;
-    cursor: pointer;
     overflow: hidden;
     color: #2d2d2d;
     transition: .3s linear;
@@ -43,10 +42,6 @@
     transition: .4s linear;
   }
   
-  .pricing-card:hover .pricing-card-header{
-    box-shadow: 0 0 0 26em #0fbcf9;
-  }
-  
   .price{
     font-size: 70px;
     color: #0fbcf9;
@@ -59,17 +54,52 @@
     font-weight: 700;
   }
   
-  .pricing-card:hover ,.pricing-card:hover .price{
-    color: #fff;
-  }
-  
   .pricing-card li{
     font-size: 13px;
     padding: 6px 0;
     text-transform: uppercase;
   }
   
-  .order-btn{
+  .order-btn1{
+    display: inline-block;
+    margin-bottom: 40px;
+    margin-top: 80px;
+    border: 2px solid #0fbcf9;
+    color: #0fbcf9;
+    padding: 18px 40px;
+    border-radius: 8px;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: .3s linear;
+  }
+
+  .order-btn2{
+    display: inline-block;
+    margin-bottom: 40px;
+    margin-top: 80px;
+    border: 2px solid #0fbcf9;
+    color: #0fbcf9;
+    padding: 18px 40px;
+    border-radius: 8px;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: .3s linear;
+  }
+
+  .order-btn3{
+    display: inline-block;
+    margin-bottom: 40px;
+    margin-top: 80px;
+    border: 2px solid #0fbcf9;
+    color: #0fbcf9;
+    padding: 18px 40px;
+    border-radius: 8px;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: .3s linear;
+  }
+
+  .order-btn4{
     display: inline-block;
     margin-bottom: 40px;
     margin-top: 80px;
@@ -84,6 +114,7 @@
   
   .order-btn:hover{
     background-color: #0fbcf9;
+    cursor: pointer;
     color: #fff;
   }
   
@@ -108,14 +139,17 @@
   outline: none;
   transition: 0.25s ease;
 }
+
 #home:hover,
 #home:focus {
   text-shadow: 0px 0px 20px white, 0px 0px 20px white, 0px 0px 20px white;
 }
+
 #home:active {
   text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.75), 0px 0px 20px rgba(255, 255, 255, 0.75), 0px 0px 20px rgba(255, 255, 255, 0.75);
   color: rgba(255, 255, 255, 0.75);
 }
+
 #home:disabled {
   color: rgba(255, 255, 255, 0.75);
   pointer-events: none;
