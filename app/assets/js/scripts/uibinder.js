@@ -17,7 +17,8 @@ let fatalStartupError = false
 const VIEWS = {
     landing: '#landingContainer',
     login: '#loginContainer',
-    whitelist: '#whitelistContainer',
+    boutique: '#boutiqueContainer',
+    test: '#testContainer',
     settings: '#settingsContainer',
     botique: '#boutiqueContainer',
     welcome: '#welcomeContainer'

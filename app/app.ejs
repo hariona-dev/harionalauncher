@@ -23,9 +23,9 @@
         #main {
             display: none;
             height: calc(100% - 22px);
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 100%);
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.80) 0%, rgba(0, 0, 0, 0.20) 90%) fixed;
             width: 100%;
-            position: absolute;
+            position: fixed;
             z-index: 10;
         }
         #main[overlay] {
@@ -39,8 +39,9 @@
         <% include welcome.ejs %>
         <% include login.ejs %>
         <% include settings.ejs %>
-        <% include whitelist.ejs %>
+        <% include boutique.ejs %>
         <% include landing.ejs %>
+        <% include test.ejs %>
     </div>
     <% include overlay.ejs %>
     <div id="loadingContainer">

@@ -22,6 +22,11 @@
     src: url('../fonts/Ringbearer.ttf');
 }
 
+@font-face {
+    font-family: 'coves';
+    src: url('../fonts/Coves-Bold.otf');
+}
+
 /*******************************************************************************
  *                                                                             *
  * Element Styles                                                              *

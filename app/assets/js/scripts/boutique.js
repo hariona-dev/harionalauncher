@@ -1,3 +1,3 @@
 document.getElementById('home').addEventListener('click', e => {
-    switchView(VIEWS.whitelist, VIEWS.landing)
+    switchView(VIEWS.boutique, VIEWS.landing)
 })
