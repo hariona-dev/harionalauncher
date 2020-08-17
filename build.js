@@ -45,8 +45,7 @@ builder.build({
             category: 'public.app-category.games'
         },
         linux: {
-            target: 'deb',
-            //target: 'AppImage',
+            target: 'AppImage',
             maintainer: 'Luuxis',
             vendor: 'Luuxis',
             synopsis: 'Launcher pour Hariona',
