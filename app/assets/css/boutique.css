@@ -62,8 +62,22 @@
 }
 
 .btn{
+  background: #60615e;
+  border: none;
+  padding: 10pt 25pt;
+  font-family: "coves",sans-serif;
+  font-size: 15px;
+  color:#fff;
+  cursor: pointer;
+  outline: none;
+  transition: 0.25s ease;
+  border-radius: 10px;
   text-decoration: none;
-  text-align: center;
 }
 
+
+#prix{
+  font-size: 30px;
+  text-align: center;
+}
 
