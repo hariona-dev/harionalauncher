@@ -34,15 +34,15 @@
     </style>
 </head>
 <body bkid="<%=bkid%>">
-    <% include frame.ejs %>
+    <% include panels/frame.ejs %>
     <div id="main">
-        <% include welcome.ejs %>
-        <% include login.ejs %>
-        <% include settings.ejs %>
-        <% include boutique.ejs %>
-        <% include landing.ejs %>
+        <% include panels/welcome.ejs %>
+        <% include panels/login.ejs %>
+        <% include panels/settings.ejs %>
+        <% include panels/boutique.ejs %>
+        <% include panels/landing.ejs %>
     </div>
-    <% include overlay.ejs %>
+    <% include panels/overlay.ejs %>
     <div id="loadingContainer">
         <div id="loadingContent">
             <div id="loadSpinnerContainer">
