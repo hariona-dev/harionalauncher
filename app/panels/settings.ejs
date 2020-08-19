@@ -2,13 +2,14 @@
     <div id="settingsContainerLeft">
         <div id="settingsNavContainer">
             <div id="settingsNavHeader">
-                <span id="settingsNavHeaderText">Réglages</span>
+                <span id="settingsNavHeaderText">options</span>
             </div>
             <div id="settingsNavItemsContainer">
                 <div id="settingsNavItemsContent">
                     <div class="settingsNavDivider"></div>
                     <button class="settingsNavItem" rSc="settingsTabAccount" id="settingsNavAccount" selected>Compte Mojang</button>
                     <button class="settingsNavItem" rSc="settingsTabJava">Java</button>
+                    <button class="settingsNavItem" rSc="settingsTabram">Ram</button>
                     <button class="settingsNavItem" rSc="settingsTabUpdate" id="settingsNavUpdate">Mises à jour</button>
                     <button class="settingsNavItem" rSc="settingsTabAbout">À propos</button>
                     <div id="settingsNavContentBottom">
@@ -140,46 +141,6 @@
                 <span class="settingsTabHeaderText">Java Settings</span>
                 <span class="settingsTabHeaderDesc">Paramètres de Java avancée.</span>
             </div>
-            <div id="settingsMemoryContainer">
-                <div id="settingsMemoryTitle">Mémoire ram pour Java.</div>
-                <div id="settingsMemoryContent">
-                    <div id="settingsMemoryContentLeft">
-                        <div class="settingsMemoryContentItem">
-                            <span class="settingsMemoryHeader">RAM maximum.</span>
-                            <div class="settingsMemoryActionContainer">
-                                <div id="settingsMaxRAMRange" class="rangeSlider" cValue="MaxRAM" min="3" max="8" value="3" step="0.5">
-                                    <div class="rangeSliderBar"></div>
-                                    <div class="rangeSliderTrack"></div>
-                                </div>
-                                <span id="settingsMaxRAMLabel" class="settingsMemoryLabel">3G</span>
-                            </div>
-                        </div>
-                        <div class="settingsMemoryContentItem">
-                            <span class="settingsMemoryHeader">RAM minimum.</span>
-                            <div class="settingsMemoryActionContainer">
-                                <div id="settingsMinRAMRange" class="rangeSlider" cValue="MinRAM" min="3" max="8" value="3" step="0.5">
-                                    <div class="rangeSliderBar"></div>
-                                    <div class="rangeSliderTrack"></div>
-                                </div>
-                                <span id="settingsMinRAMLabel" class="settingsMemoryLabel">3G</span>
-                            </div>
-                        </div>
-                        <div id="settingsMemoryDesc">Il est recommandé d'avoir 3 go de RAM pour le bon fonctionnement du jeu.</div>
-                    </div>
-                    <div id="settingsMemoryContentRight">
-                        <div id="settingsMemoryStatus">
-                            <div class="settingsMemoryStatusContainer">
-                                <span class="settingsMemoryStatusTitle">Total.</span>
-                                <span id="settingsMemoryTotal" class="settingsMemoryStatusValue">16G</span>
-                            </div>
-                            <div class="settingsMemoryStatusContainer">
-                                <span class="settingsMemoryStatusTitle">Disponible.</span>
-                                <span id="settingsMemoryAvail" class="settingsMemoryStatusValue">7.3G</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="settingsFileSelContainer">
                 <div class="settingsFileSelTitle">Java Executable</div>
                 <div class="settingsFileSelContent">
@@ -225,6 +186,48 @@
                     <input id="settingsJVMOptsVal" cValue="JVMOptions" type="text">
                 </div>
                 <div id="settingsJVMOptsDesc">Options to be provided to the JVM at runtime. <em>-Xms</em> and <em>-Xmx</em> should not be included.<br><a href="https://docs.oracle.com/javase/8/docs/technotes/tools/<%= process.platform === 'win32' ? 'windows' : 'unix' %>/java.html">Available Options for Java 8</a>.</div>
+            </div>
+        </div>
+        <div id="settingsTabram" class="settingsTab" style="display: none;">
+            <div id="settingsMemoryContainer">
+                <div id="settingsMemoryTitle">Mémoire ram pour Java.</div>
+                <div id="settingsMemoryContent">
+                    <div id="settingsMemoryContentLeft">
+                        <div class="settingsMemoryContentItem">
+                            <span class="settingsMemoryHeader">RAM maximum.</span>
+                            <div class="settingsMemoryActionContainer">
+                                <div id="settingsMaxRAMRange" class="rangeSlider" cValue="MaxRAM" min="3" max="8" value="3" step="0.5">
+                                    <div class="rangeSliderBar"></div>
+                                    <div class="rangeSliderTrack"></div>
+                                </div>
+                                <span id="settingsMaxRAMLabel" class="settingsMemoryLabel">3G</span>
+                            </div>
+                        </div>
+                        <div class="settingsMemoryContentItem">
+                            <span class="settingsMemoryHeader">RAM minimum.</span>
+                            <div class="settingsMemoryActionContainer">
+                                <div id="settingsMinRAMRange" class="rangeSlider" cValue="MinRAM" min="3" max="8" value="3" step="0.5">
+                                    <div class="rangeSliderBar"></div>
+                                    <div class="rangeSliderTrack"></div>
+                                </div>
+                                <span id="settingsMinRAMLabel" class="settingsMemoryLabel">3G</span>
+                            </div>
+                        </div>
+                        <div id="settingsMemoryDesc">Il est recommandé d'avoir 3 go de RAM pour le bon fonctionnement du jeu.</div>
+                    </div>
+                    <div id="settingsMemoryContentRight">
+                        <div id="settingsMemoryStatus">
+                            <div class="settingsMemoryStatusContainer">
+                                <span class="settingsMemoryStatusTitle">Total.</span>
+                                <span id="settingsMemoryTotal" class="settingsMemoryStatusValue">16G</span>
+                            </div>
+                            <div class="settingsMemoryStatusContainer">
+                                <span class="settingsMemoryStatusTitle">Disponible.</span>
+                                <span id="settingsMemoryAvail" class="settingsMemoryStatusValue">7.3G</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div id="settingsTabLauncher" class="settingsTab" style="display: none;">

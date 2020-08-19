@@ -117,7 +117,7 @@ document.getElementById('settingsMediaButton').onclick = (e) => {
 // Bind boutique button
 document.getElementById('boutiqueMediaButton').onclick = (e) => {
     prepareSettings()
-    switchView(getCurrentView(), VIEWS.boutique)
+    switchView(getCurrentView(), VIEWS.test)
 }
 
 // Bind avatar overlay button.

@@ -1,0 +1,51 @@
+.Options-card{
+  display: flex;
+  position: absolute;
+}
+   
+  .card{
+    background-color: rgb(128, 0, 255);
+    font-family: "coves";
+    border-radius: 10px;
+    padding: 20px 100px;
+    text-decoration: none;
+    margin: 50px 50px;
+      
+  }
+   .card1{
+    background-color: rgba(45, 44, 46, 0);
+    font-family: "coves";
+    border-radius: 10px;
+    padding: 170px 400px;
+    text-decoration: none;
+    
+      
+  }
+  .card2{
+    background-color: rgba(255, 255, 255, 0);
+    font-family: "coves";
+    border-radius: 10px;
+    padding: 50px 200px;
+    text-decoration: none;
+    position: 50px 50px;
+  }
+  .card3{
+    background-color: rgba(16, 84, 209, 0);
+    font-family: "coves";
+    border-radius: 10px;
+    padding: 20px 50px;
+    text-decoration: none;
+      
+  }
+  .card4{
+    background-color: rgba(45, 44, 46, 0);
+    font-family: "coves";
+    border-radius: 10px;
+    padding: 20px 50px;
+    text-decoration: none;
+      
+  }
+  
+  
+  
+  

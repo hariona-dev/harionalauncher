@@ -22,6 +22,7 @@ const VIEWS = {
     settings: '#settingsContainer',
     botique: '#boutiqueContainer',
     welcome: '#welcomeContainer'
+    
 }
 // The currently shown view container.
 let currentView
