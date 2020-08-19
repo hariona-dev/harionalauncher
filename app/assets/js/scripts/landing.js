@@ -117,7 +117,7 @@ document.getElementById('settingsMediaButton').onclick = (e) => {
 // Bind boutique button
 document.getElementById('boutiqueMediaButton').onclick = (e) => {
     prepareSettings()
-    switchView(getCurrentView(), VIEWS.test)
+    switchView(getCurrentView(), VIEWS.boutique)
 }
 
 // Bind avatar overlay button.
@@ -674,7 +674,7 @@ function dlAsync(login = true){
                     if(SERVER_JOINED_REGEX.test(data)){
                         DiscordWrapper.updateDetails('Exploring the Realm!')
                     } else if(GAME_JOINED_REGEX.test(data)){
-                        DiscordWrapper.updateDetails('Gaming in Mooncraft!')
+                        DiscordWrapper.updateDetails('Jouer a hariona!')
                     }
                 }
 
@@ -682,7 +682,7 @@ function dlAsync(login = true){
                     data = data.trim()
                     if(data.indexOf('Could not find or load main class net.minecraft.launchwrapper.Launch') > -1){
                         loggerLaunchSuite.error('Game launch failed, LaunchWrapper was not downloaded properly.')
-                        showLaunchFailure('Error During Launch', 'The main file, LaunchWrapper, failed to download properly. As a result, the game cannot launch.<br><br>To fix this issue, temporarily turn off your antivirus software and launch the game again.<br><br>If you have time, please <a href="https://github.com/MOONMOONOSS/HeliosLauncher/issues">submit an issue</a> and let us know what antivirus software you use. We\'ll contact them and try to straighten things out.')
+                        showLaunchFailure('Error During Launch', 'The main file, LaunchWrapper, failed to download properly. As a result, the game cannot launch.<br><br>To fix this issue, temporarily turn off your antivirus software and launch the game again.<br><br>If you have time, please <a href="https://github.com/hariona-dev/harionalauncher/issues">submit an issue</a> and let us know what antivirus software you use. We\'ll contact them and try to straighten things out.')
                     }
                 }
 
