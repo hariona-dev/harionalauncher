@@ -1,12 +1,3 @@
-#home-txt{
-    font-family: Arial Black;
-    font-size: 50pt;
-    padding: 10px 40px;
-    text-align: center;
-  }
-  
-  
-  
   .home-card{
     display: flex;
     justify-content: space-around;
@@ -24,8 +15,31 @@
     border-radius: 10px;
     padding: 101px 35px;
     text-decoration: none;
+  } 
+}
+ .cardhome2{
+  background-color: rgba(60, 55, 68, 0.40);
+  font-family: "coves";
+  border-radius: 10px;
+  padding: 101px 35px;
+  text-decoration: none;
+}
+  
+.cardhome3{
+    background-color: rgba(60, 55, 68, 0.40);
+    font-family: "coves";
+    border-radius: 10px;
+    padding: 50pt 50pt;
+    text-decoration: none;
   }
   
+} .cardhome4{
+  background-color: rgb(98, 0, 255);
+  font-family: "coves";
+  border-radius: 10px;
+  padding: 101px 35px;
+  text-decoration: none;
+}
   
   
   #launch_details {
