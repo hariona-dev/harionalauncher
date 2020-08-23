@@ -66,7 +66,7 @@ function showMainUI(data){
     }
 
     prepareSettings(true)
-   // updateSelectedServer(data.getServer(ConfigManager.getSelectedServer()))
+    updateSelectedServer(data.getServer(ConfigManager.getSelectedServer()))
     refreshServerStatus()
     setTimeout(() => {
         document.getElementById('frameBar').style.backgroundColor = 'rgba(0, 0, 0, 0.5)'
@@ -104,9 +104,7 @@ function showMainUI(data){
         
     }, 750)
     // Disable tabbing to the news container.
-    initNews().then(() => {
-        $('#newsContainer *').attr('tabindex', '-1')
-    })
+   
 }
 
 function showFatalStartupError(){
