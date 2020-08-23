@@ -5,6 +5,7 @@
   
   #home-txt{
     font-family: Arial Black;
+    text-align: center;
     font-size: 50pt;
     padding: 10px 40px;
   }
@@ -151,4 +152,9 @@
     background: rgba(107, 105, 105, 0.7);
     margin-left: 20px;
     margin-right: 20px;
+}
+
+#server_status_wrapper {
+  display: inline-flex;
+  width: 75px;
 }
