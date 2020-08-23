@@ -9,15 +9,14 @@
     padding: 10px 40px;
   }
   
-  .cardhome1{
-    background-color: rgba(60, 55, 68, 0.40);
-    font-family: "coves";
-    border-radius: 10px;
-    padding: 101px 35px;
-    text-decoration: none;
-  } 
-}
- .cardhome2{
+.cardhome1{
+  background-color: rgba(60, 55, 68, 0.40);
+  font-family: "coves";
+  border-radius: 10px;
+  padding: 101px 35px;
+  text-decoration: none;
+} 
+.cardhome2{
   background-color: rgba(60, 55, 68, 0.40);
   font-family: "coves";
   border-radius: 10px;
@@ -26,14 +25,14 @@
 }
   
 .cardhome3{
-    background-color: rgba(60, 55, 68, 0.40);
-    font-family: "coves";
-    border-radius: 10px;
-    padding: 50pt 50pt;
-    text-decoration: none;
+  background-color: rgba(60, 55, 68, 0.40);
+  font-family: "coves";
+  border-radius: 10px;
+  padding: 50pt 50pt;
+  text-decoration: none;
   }
-  
-} .cardhome4{
+
+.cardhome4{
   background-color: rgb(98, 0, 255);
   font-family: "coves";
   border-radius: 10px;
