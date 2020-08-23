@@ -216,8 +216,6 @@ const refreshMojangStatuses = async function(){
         loggerLanding.warn('Unable to refresh Mojang service status.')
         loggerLanding.debug(err)
     }
-    
-   
 }
 
 const refreshServerStatus = async function(fade = false){
