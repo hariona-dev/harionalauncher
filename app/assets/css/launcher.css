@@ -30,6 +30,7 @@
   border-radius: 10px;
   padding: 30px 100px;
   text-decoration: none;
+  text-align: center;
   }
 
 .cardhome4{
@@ -43,7 +44,6 @@
   
   #launch_details {
     position: relative;
-    top: 25px;
     display: none;
   }
   
@@ -58,7 +58,6 @@
     font-size: 20px;
     min-width: 53.21px;
     max-width: 53.21px;
-    text-align: right;
   }
   
   #launch_details_right {
@@ -99,7 +98,6 @@
   
   #launch_details_text {
     font-size: 11px;
-    text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
   }
@@ -147,3 +145,10 @@
     border-radius: 10px;
     text-decoration: none;
   }
+  .bot_divider {
+    height: 25px;
+    width: 2px;
+    background: rgba(107, 105, 105, 0.7);
+    margin-left: 20px;
+    margin-right: 20px;
+}
