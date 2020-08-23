@@ -11,10 +11,10 @@
   }
   
 .cardhome1{
-  background-color: rgba(60, 55, 68, 0.40);
+  background-color: rgb(60, 55, 68);
   font-family: "coves";
   border-radius: 10px;
-  padding: 101px 35px;
+  padding: 10px 35px;
   text-decoration: none;
 } 
 .cardhome2{
@@ -145,6 +145,19 @@
   padding: 10px 40px;
   background-color: #abff02;
   
+}
+
+.text-annouce{
+  font-family: Arial Black;
+  text-align: center;
+  margin-top: -5px;
+  font-size: 30pt;
+}
+
+.text-annouce-con{
+  font-family: Arial Black;
+  text-align: center;
+  font-size: 20pt;
 }
 
 #bot_wrapper{
