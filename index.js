@@ -100,7 +100,7 @@ function createWindow() {
         minWidth: 1280,
         minHeight: 720,
         icon: getPlatformIcon('SealCircle'),
-        resizable: true,
+        resizable: false,
         frame: false,
         webPreferences: {
             preload: path.join(__dirname, 'app', 'assets', 'js', 'preloader.js'),
