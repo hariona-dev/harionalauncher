@@ -18,9 +18,7 @@ const VIEWS = {
     landing: '#landingContainer',
     login: '#loginContainer',
     boutique: '#boutiqueContainer',
-    test: '#testContainer',
     settings: '#settingsContainer',
-    botique: '#boutiqueContainer',
     welcome: '#welcomeContainer'
     
 }
