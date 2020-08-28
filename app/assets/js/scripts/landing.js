@@ -223,14 +223,14 @@ const refreshServerStatus = async function(fade = false){
     const serv = DistroManager.getDistribution().getServer(ConfigManager.getSelectedServer())
 
     let pLabel = ''
-    let pVal = 'serveur en maintenance'
+    let pVal = 'Serveur en maintenance..'
 
     try {
         const serverURL = new URL('my://' + serv.getAddress())
         const servStat = await ServerStatus.getStatus(serverURL.hostname, serverURL.port)
         if(servStat.online){
             pLabel = 'PLAYERS-'
-            pVal = /*'PLAYERS-' + */servStat.onlinePlayers + '/' + servStat.maxPlayers
+            pVal = servStat.onlinePlayers + '/' + servStat.maxPlayers
         }
 
     } catch (err) {
