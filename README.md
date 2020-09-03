@@ -3,7 +3,7 @@
 <h1>hariona Launcher</h1>
 
 
-[![discord](https://img.shields.io/badge/version-1.1.0-dark_green.svg?style=for-the-badge)][discord]
+[![discord](https://img.shields.io/badge/version-1.2.1-dark_green.svg?style=for-the-badge)][discord]
 
 
 
@@ -15,4 +15,4 @@
 ---
 
 
-[discord]: https://discord.gg/zNWUXdt 'Discord'
+[discord]: https://github.com/hariona-dev/harionalauncher/releases 'Discord'
