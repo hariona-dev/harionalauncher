@@ -4,9 +4,12 @@
 
 <p>
     <img src="https://img.shields.io/badge/version-1.1.0-dark_green.svg?style=for-the-badge" alt="version">(https://github.com/dscalzi/HeliosLauncher)
-</p>
 
----
+
+[![discord](https://img.shields.io/badge/version-1.1.0-dark_green.svg?style=for-the-badge)][discord]
+
+
+[discord]: https://discord.gg/zNWUXdt 'Discord'
 
 <p>
     Basé sur le travail de Daniel Scalzi (https://github.com/dscalzi/HeliosLauncher)
