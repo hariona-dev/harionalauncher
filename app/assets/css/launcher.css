@@ -5,6 +5,10 @@
   
   .logo {
     position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding-top: 0px;
     width: 325px;
 }
   
@@ -24,10 +28,10 @@
 }
   
 .cardhome3{
-  background-color: #8bc9a100;
+  background-color: #8bc9a196;
   font-family: "coves";
   border-radius: 10px;
-  padding: 30px 100px;
+  padding: 20px 100px;
   text-decoration: none;
   text-align: center;
   }
@@ -36,7 +40,6 @@
   
   font-family: "coves";
   border-radius: 10px;
-  padding: 10px 20px;
   text-decoration: none;
 }
   
@@ -86,7 +89,7 @@
 
 
   #launch_button{
-    background: #60615e;
+    background: #0059ff;
     border: none;
     padding: 10pt 25pt;
     font-family: "coves",sans-serif;
@@ -100,7 +103,7 @@
   }
 
   #settingsMediaButton{
-    background: #60615e;
+    background: #6f04c7;
     border: none;
     padding: 10pt 25pt;
     font-family: "coves",sans-serif;
@@ -114,7 +117,7 @@
   }
 
   #boutiqueMediaButton{
-    background: #60615e;
+    background: #6f04c7;
     border: none;
     padding: 10pt 25pt;
     font-family: "coves",sans-serif;
@@ -142,11 +145,7 @@
   font-family: "coves",sans-serif;
 }
 
-#imagehariona{
-  padding: 10px 40px;
-  background-color: #abff02;
-  
-}
+
 
 .text-annouce{
   font-family: Arial Black;
@@ -159,7 +158,4 @@
   font-family: Arial Black;
   text-align: left;
   font-size: 15pt;
-}
-
-#bot_wrapper{
 }

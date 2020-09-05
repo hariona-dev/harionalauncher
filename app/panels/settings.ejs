@@ -1,16 +1,39 @@
 <div id="settingsContainer" style="display: none;">
-    <div id="settingsContainerLeft">
-        <div id="settingsNavContainer">
-            <div id="settingsNavHeader">
-                <span id="settingsNavHeaderText">options</span>
-            </div>
-            <div id="settingsNavItemsContainer">
-                <div id="settingsNavItemsContent">
-                    <button class="settingsNavItem" rSc="settingsTabAccount" id="settingsNavAccount" selected>Compte Mojang</button>
-                    <button class="settingsNavItem" rSc="settingsTabJava">Java</button>
-                    <button class="settingsNavItem" rSc="settingsTabram">Ram</button>
-                    <button id="settingsNavDone">Sauvegarder</button>
+<div class="settings-panel-left">
+        <div class="settings-container-nav">
+            <div class="nav-items-container">
+                <div class="group">
+                    <p class="title">Paramètres utilisateur</p>
+                    <button class="item settingsTab" id="settings-user-compte-panel-button" rSc="settings-user-compte-panel">Mon compte</button>
+                    <hr>
                 </div>
+                <div class="group">
+                    <p class="title">Paramètres Java</p>
+                    <button class="item settingsTab" id="settings-java-memory-panel-button" rSc="settings-java-memory-panel">Mémoire Ram</button>
+                    <button class="item settingsTab" id="settings-java-executable-panel-button" rSc="settings-java-executable-panel">Java exécutable</button>
+                    <hr>
+                </div>
+                <div class="group">
+                    <button class="item settingsTab" id="settings-cgv-panel-button" rSc="settings-cgv-panel">Conditions générales de vente</button>
+                    <button class="item settingsTab" id="settings-pdc-panel-button" rSc="settings-pdc-panel">Politique de confidentialité</button>
+                    <button class="item settingsTab" id="settings-pdc-panel-button" rSc="settings-eula-panel">CLUF (EULA)</button>
+                    <hr>
+                </div>
+                <div class="group">
+                    <button class="item save" id="settingsNavDone" style="margin-top: 40px;">Sauvegarder</button>
+                    <hr>
+                </div>
+                <div class="group" style="margin-top: 5px;">
+                    <a href="https://discord.gg/paladium" class="btn item-social"><i class="fab fa-discord"></i></a>
+                    <a href="https://twitter.com/paladiumpvp?lang=fr" class="btn item-social"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.youtube.com/channel/UC3uSViy-aWBAk6b36Xjnm0g" class="btn item-social"><i class="fab fa-youtube"></i></a>
+                </div>
+                <!--<div class="group" style="margin-top: 15px; margin-left: 5px;">
+                    <p class="info-system">
+                        Stable 1.0.0-beta.1 (0.0.01-d14)
+                        <br>Windows 10 64-Bit (10.0.18363)
+                    </p>
+                </div>-->
             </div>
         </div>
     </div>
