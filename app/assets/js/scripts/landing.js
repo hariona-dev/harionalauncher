@@ -110,23 +110,17 @@ document.getElementById('launch_button').addEventListener('click', function(e){
 
 // Bind settings button
 document.getElementById('settingsMediaButton').onclick = (e) => {
-    prepareSettings()
+    initSettings()
     switchView(getCurrentView(), VIEWS.settings)
 }
 
 // Bind boutique button
 document.getElementById('boutiqueMediaButton').onclick = (e) => {
-    prepareSettings()
     switchView(getCurrentView(), VIEWS.boutique)
 }
 
 // Bind avatar overlay button.
-document.getElementById('avatarOverlay').onclick = (e) => {
-    prepareSettings()
-    switchView(getCurrentView(), VIEWS.settings, 500, 500, () => {
-        settingsNavItemListener(document.getElementById('settingsNavAccount'), false)
-    })
-}
+
 
 // Bind selected account
 function updateSelectedAccount(authUser){
