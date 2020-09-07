@@ -362,3 +362,193 @@
 .settings-memory-info-container {
     display: flex;
 }
+
+
+
+
+
+
+.textfield {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 10px 10px;
+
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+
+    outline: none;
+
+    border: 1px solid transparent;
+    border-radius: 3px;
+
+    transition: 0.15s;
+}
+.textfield:focus {
+    border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+
+.range-slider {
+    width: 35%;
+    height: 7px;
+    margin: 15px 0px;
+    background-color: #3b3b3b;
+    border-radius: 3px;
+    position: relative;
+}
+.range-slider-bar {
+    position: absolute;
+    background: #ffa304;
+    width: 50%;
+    height: 7px;
+    border-radius: 3px 0px 0px 3px;
+}
+.range-slider-track {
+    position: absolute;
+    top: -7.5px;
+    width: 8px;
+    height: 20px;
+    background: white;
+    border-radius: 3px;
+    left: 50%;
+    cursor: ew-resize;
+}
+
+/* #endregion */
+
+/**
+* CheckBox
+**/
+
+/* #region */
+
+.checkbox {
+    position: absolute;
+    opacity: 0;
+}
+.checkbox + label {
+    position: relative;
+    cursor: pointer;
+    color: inherit;
+    padding: 0;
+}
+.checkbox + label:before {
+    content: '';
+    margin-right: 5px;
+    display: inline-block;
+    vertical-align: text-top;
+    width: 14px;
+    height: 14px;
+    background: #3b3b3b;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+
+    opacity: 0.5;
+}
+.checkbox:checked + label:before {
+    background: rgba(11, 199, 92);
+}
+.checkbox:disabled + label {
+    color: #b8b8b8;
+    cursor: auto;
+}
+.checkbox:disabled + label:before {
+    box-shadow: none;
+    background: #ddd;
+}
+.checkbox:checked + label:after {
+    content: '';
+    position: absolute;
+    left: 3px;
+    top: 7px;
+    background: white;
+    width: 2px;
+    height: 2px;
+    box-shadow: 2px 0 0 white, 4px 0 0 white, 4px -2px 0 white, 4px -4px 0 white, 4px -6px 0 white, 4px -8px 0 white;
+    transform: rotate(45deg);
+}
+.checkbox:hover + label:before {
+    opacity: 1;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.12);
+}
+
+
+.circle-loader {
+    position: relative;
+    display: inline-block;
+
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-left-color: #ffffff;
+
+    animation-name: circle-loader-spin;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+
+    vertical-align: top;
+    border-radius: 50%;
+
+    width: 20px;
+    height: 20px;
+}
+@keyframes circle-loader-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.info-bar {
+    background-color: rgba(11, 199, 92, 0.1);
+    border-radius: 5px;
+    color: #0bc75c;
+    display: inline-block;
+    flex: 0 0 auto;
+    font-size: 12px;
+    line-height: 20px;
+    padding: 6px 16px;
+    width: 100%;
+}
+.info-bar a:hover {
+    background-color: rgb(11, 199, 92, 0.5);
+}
+
+.warning-bar {
+    background-color: rgba(250, 166, 26, 0.1);
+    border-radius: 5px;
+    color: #faa61a;
+    display: inline-block;
+    flex: 0 0 auto;
+    font-size: 12px;
+    line-height: 20px;
+    padding: 6px 16px;
+    width: 100%;
+}
+.warning-bar a:hover {
+    background-color: rgb(250, 166, 26, 0.5);
+}
+
+
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    display: none;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 0px;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.button-select {
+    width: 0px;
+    height: 0px;
+    opacity: 0;
+}
+.button-select::-webkit-file-upload-button {
+    display: none;
+}

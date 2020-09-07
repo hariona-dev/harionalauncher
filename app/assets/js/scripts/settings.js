@@ -1,4 +1,7 @@
+const { JavaGuard } = require('./assets/js/assetguard')
+
 let currentSettingsPanel;
+
 
 function setupSettingsTabs() {
     Array.from(document.getElementsByClassName('settingsTab')).map((val) => {
@@ -72,5 +75,21 @@ function savesSettings() {
     ConfigManager.setJavaExecutable(initSettingsJavaExecutableTextField.value);
 
     ConfigManager.save();
-    switchView(getCurrentView(), VIEWS.launcher);
+    switchView(getCurrentView(), VIEWS.landing);
+}
+
+
+function populateJavaExecDetails(execPath){
+    const jg = new JavaGuard(DistroManager.getDistribution().getServer(ConfigManager.getSelectedServer()).getMinecraftVersion())
+    jg._validateJavaBinary(execPath).then(v => {
+        if(v.valid){
+            if(v.version.major < 9) {
+                settingsJavaExecDetails.innerHTML = `Selected: Java ${v.version.major} Update ${v.version.update} (x${v.arch})`
+            } else {
+                settingsJavaExecDetails.innerHTML = `Selected: Java ${v.version.major}.${v.version.minor}.${v.version.revision} (x${v.arch})`
+            }
+        } else {
+            settingsJavaExecDetails.innerHTML = 'Invalid Selection'
+        }
+    })
 }
