@@ -33,6 +33,19 @@
   border-radius: 10px;
 }
 
+#home2{
+  background: #60615e;
+  border: none;
+  margin: 40px 40px;
+  padding: 10pt 25pt;
+  font-family: "coves",sans-serif;
+  font-size: 15px;
+  color:#fff;
+  cursor: pointer;
+  outline: none;
+  transition: 0.25s ease;
+  border-radius: 10px;
+}
 
 .shop-card{
   display: flex;

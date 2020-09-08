@@ -8,7 +8,7 @@
 }
 
 /* Drop shadow displayed when content is scrolled out of view. */
-#settingsContainer:before {
+#updateContainer:before {
     content: '';
     background: linear-gradient(rgba(0, 0, 0, 0.25), transparent);
     width: 100%;
@@ -17,7 +17,7 @@
     opacity: 0;
     transition: opacity 0.25s ease;
 }
-#settingsContainer[scrolled]:before {
+#updateContainer[scrolled]:before {
     opacity: 1;
 }
 
@@ -179,13 +179,13 @@
 }
 
 /* Remove spin button from number inputs. */
-#settingsContainer input[type=number]::-webkit-inner-spin-button {
+#updateContainer input[type=number]::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
 
 /* Default styles for text/number inputs. */
-#settingsContainer input[type=number],
-#settingsContainer input[type=text] {
+#updateContainer input[type=number],
+#updateContainer input[type=text] {
     color: white;
     background: rgba(0, 0, 0, 0.25);
     border-radius: 3px;
@@ -193,12 +193,12 @@
     font-family: 'Avenir Book';
     transition: 0.25s ease;
 }
-#settingsContainer input[type=number]:focus,
-#settingsContainer input[type=text]:focus {
+#updateContainer input[type=number]:focus,
+#updateContainer input[type=text]:focus {
     outline: none;
     border-color: rgba(126, 126, 126, 0.87);
 }
-#settingsContainer input[type=number][error] {
+#updateContainer input[type=number][error] {
     border-color: rgb(255, 27, 12);
     background: rgba(236, 0, 0, 0.25);
     color: rgb(255, 27, 12);

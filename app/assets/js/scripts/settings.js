@@ -1,5 +1,4 @@
 const { JavaGuard } = require('./assets/js/assetguard')
-
 let currentSettingsPanel;
 
 
@@ -93,3 +92,8 @@ function populateJavaExecDetails(execPath){
         }
     })
 }
+
+
+
+
+

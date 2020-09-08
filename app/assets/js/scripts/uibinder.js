@@ -89,8 +89,8 @@ function showMainUI(data){
             $(VIEWS.welcome).fadeIn(1000)
         } else {
             if(isLoggedIn){
-                currentView = VIEWS.landing
-                $(VIEWS.landing).fadeIn(1000)
+                currentView = VIEWS.update
+                $(VIEWS.update).fadeIn(1000)
             } else {
                 currentView = VIEWS.login
                 $(VIEWS.login).fadeIn(1000)

@@ -110,8 +110,8 @@ document.getElementById('launch_button').addEventListener('click', function(e){
 
 // Bind settings button
 document.getElementById('settingsMediaButton').onclick = (e) => {
-    //initSettings()
-    //switchView(getCurrentView(), VIEWS.settings)
+    initSettings()
+    switchView(getCurrentView(), VIEWS.settings)
 }
 
 // Bind boutique button
