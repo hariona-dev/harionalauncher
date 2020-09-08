@@ -15,6 +15,7 @@ let fatalStartupError = false
 
 // Mapping of each view to their container IDs.
 const VIEWS = {
+    update: '#updateContainer',
     landing: '#landingContainer',
     login: '#loginContainer',
     boutique: '#boutiqueContainer',
