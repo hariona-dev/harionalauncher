@@ -110,17 +110,23 @@ document.getElementById('launch_button').addEventListener('click', function(e){
 
 // Bind settings button
 document.getElementById('settingsMediaButton').onclick = (e) => {
-    initSettings()
+    prepareSettings()
     switchView(getCurrentView(), VIEWS.settings)
 }
 
 // Bind boutique button
 document.getElementById('boutiqueMediaButton').onclick = (e) => {
+    prepareSettings()
     switchView(getCurrentView(), VIEWS.boutique)
 }
 
 // Bind avatar overlay button.
-
+document.getElementById('avatarOverlay').onclick = (e) => {
+    prepareSettings()
+    switchView(getCurrentView(), VIEWS.settings, 500, 500, () => {
+        settingsNavItemListener(document.getElementById('settingsNavAccount'), false)
+    })
+}
 
 // Bind selected account
 function updateSelectedAccount(authUser){
@@ -217,14 +223,14 @@ const refreshServerStatus = async function(fade = false){
     const serv = DistroManager.getDistribution().getServer(ConfigManager.getSelectedServer())
 
     let pLabel = ''
-    let pVal = 'Serveur en maintenance..'
+    let pVal = 'serveur en maintenance'
 
     try {
         const serverURL = new URL('my://' + serv.getAddress())
         const servStat = await ServerStatus.getStatus(serverURL.hostname, serverURL.port)
         if(servStat.online){
             pLabel = 'PLAYERS-'
-            pVal = servStat.onlinePlayers + '/' + servStat.maxPlayers
+            pVal = /*'PLAYERS-' + */servStat.onlinePlayers + '/' + servStat.maxPlayers
         }
 
     } catch (err) {
