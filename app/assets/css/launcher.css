@@ -1,161 +1,161 @@
-  .home-card{
-    display: flex;
-    justify-content: space-around;
-  }
-  
-  .logo {
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin: auto;
-    padding-top: 0px;
-    width: 325px;
+.home-card{
+  display: flex;
+  justify-content: space-around;
 }
-  
+
+.logo {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  padding-top: 0px;
+  width: 325px;
+}
+
 .cardhome1{
-  background-color: rgb(60, 55, 68);
-  font-family: "coves";
-  border-radius: 10px;
-  padding: 10px 35px;
-  text-decoration: none;
+background-color: rgb(60, 55, 68);
+font-family: "coves";
+border-radius: 10px;
+padding: 10px 35px;
+text-decoration: none;
 } 
 .cardhome2{
-  background-color: rgba(60, 55, 68, 0);
-  font-family: "coves";
-  border-radius: 10px;
-  padding: 101px 35px;
-  text-decoration: none;
+background-color: rgba(60, 55, 68, 0);
+font-family: "coves";
+border-radius: 10px;
+padding: 101px 35px;
+text-decoration: none;
 }
-  
+
 .cardhome3{
-  background-color: #8bc9a196;
-  font-family: "coves";
-  border-radius: 10px;
-  padding: 20px 100px;
-  text-decoration: none;
-  text-align: center;
-  }
+background-color: #8bc9a196;
+font-family: "coves";
+border-radius: 10px;
+padding: 20px 100px;
+text-decoration: none;
+text-align: center;
+}
 
 .cardhome4{
-  
-  font-family: "coves";
+
+font-family: "coves";
+border-radius: 10px;
+text-decoration: none;
+}
+
+
+#launch_details {
+  position: relative;
+  display: none;
+}
+
+#launch_details_left {
+  display: flex;
+}
+
+#launch_progress_label {
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-shadow: 0px 0px 0px #bebcbb;
+  font-size: 20px;
+  min-width: 53.21px;
+  max-width: 53.21px;
+}
+
+#launch_details_right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#launch_progress[value] {
+  height: 3px;
+  width: 265px;
+  -webkit-appearance: none;
+}
+#launch_progress[value]::-webkit-progress-bar {
+  background-color: transparent;
+}
+#launch_progress[value]::-webkit-progress-value {
+  background-color: #fff;
+}
+
+#launch_details_text {
+  font-size: 11px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+
+
+#launch_button{
+  background: #0059ff;
+  border: none;
+  padding: 10pt 25pt;
+  font-family: "coves",sans-serif;
+  font-size: 15px;
+  color:#fff;
+  cursor: pointer;
+  outline: none;
+  transition: 0.25s ease;
   border-radius: 10px;
   text-decoration: none;
 }
-  
-  
-  #launch_details {
-    position: relative;
-    display: none;
-  }
-  
-  #launch_details_left {
-    display: flex;
-  }
-  
-  #launch_progress_label {
-    font-weight: 900;
-    letter-spacing: 1px;
-    text-shadow: 0px 0px 0px #bebcbb;
-    font-size: 20px;
-    min-width: 53.21px;
-    max-width: 53.21px;
-  }
-  
-  #launch_details_right {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  
-  #launch_progress[value] {
-    height: 3px;
-    width: 265px;
-    -webkit-appearance: none;
-  }
-  #launch_progress[value]::-webkit-progress-bar {
-    background-color: transparent;
-  }
-  #launch_progress[value]::-webkit-progress-value {
-    background-color: #fff;
-  }
-  
-  #launch_details_text {
-    font-size: 11px;
-    white-space: nowrap;
-    overflow: hidden;
-  }
 
+#settingsMediaButton{
+  background: #6f04c7;
+  border: none;
+  padding: 10pt 25pt;
+  font-family: "coves",sans-serif;
+  font-size: 15px;
+  color:#fff;
+  cursor: pointer;
+  outline: none;
+  transition: 0.25s ease;
+  border-radius: 10px;
+  text-decoration: none;
+}
 
-
-  #launch_button{
-    background: #0059ff;
-    border: none;
-    padding: 10pt 25pt;
-    font-family: "coves",sans-serif;
-    font-size: 15px;
-    color:#fff;
-    cursor: pointer;
-    outline: none;
-    transition: 0.25s ease;
-    border-radius: 10px;
-    text-decoration: none;
-  }
-
-  #settingsMediaButton{
-    background: #6f04c7;
-    border: none;
-    padding: 10pt 25pt;
-    font-family: "coves",sans-serif;
-    font-size: 15px;
-    color:#fff;
-    cursor: pointer;
-    outline: none;
-    transition: 0.25s ease;
-    border-radius: 10px;
-    text-decoration: none;
-  }
-
-  #boutiqueMediaButton{
-    background: #6f04c7;
-    border: none;
-    padding: 10pt 25pt;
-    font-family: "coves",sans-serif;
-    font-size: 15px;
-    color:#fff;
-    cursor: pointer;
-    outline: none;
-    transition: 0.25s ease;
-    border-radius: 10px;
-    text-decoration: none;
-  }
-  .bot_divider {
-    height: 25px;
-    width: 2px;
-    background: rgba(107, 105, 105, 0.7);
-    margin-left: 20px;
-    margin-right: 20px;
+#boutiqueMediaButton{
+  background: #6f04c7;
+  border: none;
+  padding: 10pt 25pt;
+  font-family: "coves",sans-serif;
+  font-size: 15px;
+  color:#fff;
+  cursor: pointer;
+  outline: none;
+  transition: 0.25s ease;
+  border-radius: 10px;
+  text-decoration: none;
+}
+.bot_divider {
+  height: 25px;
+  width: 2px;
+  background: rgba(107, 105, 105, 0.7);
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 #server_status_wrapper {
-  padding: 10px 20px;
-  background-color: rgba(255, 255, 255, 0.548);
-  border-radius: 50px;
-  color: black;
-  font-family: "coves",sans-serif;
+padding: 10px 20px;
+background-color: rgba(255, 255, 255, 0.548);
+border-radius: 50px;
+color: black;
+font-family: "coves",sans-serif;
 }
 
 
 
 .text-annouce{
-  font-family: Arial Black;
-  text-align: center;
-  margin-top: -5px;
-  font-size: 30pt;
+font-family: Arial Black;
+text-align: center;
+margin-top: -5px;
+font-size: 30pt;
 }
 
 .text-annouce-con{
-  font-family: Arial Black;
-  text-align: left;
-  font-size: 15pt;
+font-family: Arial Black;
+text-align: left;
+font-size: 15pt;
 }
