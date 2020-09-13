@@ -1,0 +1,105 @@
+/* Main about content container. */
+#settingsUpdateStatusContainer {
+    display: flex;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(126, 126, 126, 0.57);
+    border-radius: 3px;
+    width: 75%;
+    margin-bottom: 20px;
+  }
+  
+  /* Update content. */
+  #settingsUpdateStatusContent {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+  }
+  
+  /* Update header elements. */
+  #settingsUpdateStatusHeadline {
+    display: flex;
+    align-items: center;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgba(126, 126, 126, 0.57);
+  }
+  #settingsUpdateTitle {
+    font-size: 16px;
+    padding-left: 10px;
+    font-weight: bold;
+  }
+  
+  /* Update version container. */
+  #settingsUpdateVersion {
+    display: flex;
+    align-items: center;
+    padding: 10px 0px;
+    border-bottom: 1px solid rgba(126, 126, 126, 0.57);
+  }
+  
+  /* Checkmark next to the version information. */
+  #settingsUpdateVersionCheck {
+    border-radius: 50%;
+    background: #23aa23;
+    text-align: center;
+    font-weight: bold;
+    margin: 11px 12px;
+    color: white;
+    height: 15px;
+    width: 15px;
+    font-size: 12px;
+    line-height: 17px;
+  }
+  
+  /* Update version details container. */
+  #settingsUpdateVersionDetails {
+    margin-left: 10px;
+  }
+  
+  /* Release type text. */
+  #settingsUpdateVersionTitle {
+    font-size: 12px;
+    font-family: 'Avenir Medium';
+    color: #23aa23;
+    font-weight: bold;
+  }
+  
+  /* Current version text. */
+  #settingsUpdateVersionLine {
+    font-size: 10px;
+    color: grey;
+    font-weight: bold;
+  }
+  
+  /* Update action container. */
+  #settingsUpdateActionContainer {
+    padding-top: 10px;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  /* Update action button styles. */
+  #settingsUpdateActionButton {
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+    background: none;
+    border: none;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+    text-align: left;
+    transition: 0.25s ease;
+  }
+  #settingsUpdateActionButton:hover,
+  #settingsUpdateActionButton:focus {
+    text-shadow: 0px 0px 20px white, 0px 0px 20px white, 0px 0px 20px white;
+  }
+  #settingsUpdateActionButton:active {
+    text-shadow: 0px 0px 20px #c7c7c7, 0px 0px 20px #c7c7c7, 0px 0px 20px #c7c7c7;
+    color: #c7c7c7;
+  }
+  #settingsUpdateActionButton:disabled {
+    pointer-events: none;
+  }

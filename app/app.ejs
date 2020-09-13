@@ -37,13 +37,14 @@
 <body bkid="<%=bkid%>">
     <% include panels/frame.ejs %>
     <div id="main">
-        <% include panels/update.ejs %>
         <% include panels/welcome.ejs %>
+        <% include panels/update.ejs %>
         <% include panels/login.ejs %>
         <% include panels/settings.ejs %>
         <% include panels/boutique.ejs %>
         <% include panels/landing.ejs %>
     </div>
+    <% include panels/overlay.ejs %>
     <div id="loadingContainer">
         <div id="loadingContent">
             <div id="loadSpinnerContainer">

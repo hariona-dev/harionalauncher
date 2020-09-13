@@ -195,7 +195,7 @@ function resolveError(err){
     }
 }
 
-let loginViewOnSuccess = VIEWS.landing
+let loginViewOnSuccess = VIEWS.update
 let loginViewOnCancel = VIEWS.settings
 let loginViewCancelHandler
 
