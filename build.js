@@ -54,7 +54,7 @@ builder.build({
         },
         compression: 'maximum',
         files: [
-            '!{dist,.gitignore,electron,.vscode,docs,dev-app-update.yml,.travis.yml,.nvmrc,.eslintrc.json,build.js,README.md,.eslintignore}'
+            '!{dist,.gitignore,electron,.vscode,docs,dev-app-update.yml,.travis.yml,.nvmrc,.eslintrc.json,build.js,README.md,.eslintignore,start.bat}'
         ],
         extraResources: [
             'libraries'
