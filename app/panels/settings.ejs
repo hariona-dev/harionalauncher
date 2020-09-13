@@ -21,19 +21,13 @@
     </div>
     <div id="settingsContainerRight">
         
-        <% include settings/about.ejs %>
-
-        <% include settings/account.ejs %>
-
-        <% include settings/java.ejs %>
-
-        <% include settings/launcher.ejs %>
-
-        <% include settings/minecraft.ejs %>
-
-        <% include settings/mods.ejs %>
-
-        <% include settings/ram.ejs %>
+        <%- include('settings/about') %>
+        <%- include('settings/account') %>
+        <%- include('settings/java') %>
+        <%- include('settings/launcher') %>
+        <%- include('settings/minecraft') %>
+        <%- include('settings/mods') %>
+        <%- include('settings/ram') %>
 
     </div>
     <script src="./assets/js/scripts/settings.js"></script>

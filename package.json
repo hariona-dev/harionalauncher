@@ -47,9 +47,9 @@
   },
   "devDependencies": {
     "cross-env": "^7.0.2",
-    "electron": "^9.2.1",
+    "electron": "^9.3.0",
     "electron-builder": "^22.8.0",
-    "eslint": "^7.6.0"
+    "eslint": "^7.9.0"
   },
   "repository": {
     "type": "git",

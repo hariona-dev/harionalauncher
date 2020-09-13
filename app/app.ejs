@@ -35,16 +35,16 @@
     </style>
 </head>
 <body bkid="<%=bkid%>">
-    <% include panels/frame.ejs %>
+    <%- include('panels/frame') %>
     <div id="main">
-        <% include panels/welcome.ejs %>
-        <% include panels/update.ejs %>
-        <% include panels/login.ejs %>
-        <% include panels/settings.ejs %>
-        <% include panels/boutique.ejs %>
-        <% include panels/landing.ejs %>
+        <%- include('panels/welcome') %>
+        <%- include('panels/update') %>
+        <%- include('panels/login') %>
+        <%- include('panels/settings') %>
+        <%- include('panels/boutique') %>
+        <%- include('panels/landing') %>
     </div>
-    <% include panels/overlay.ejs %>
+    <%- include('panels/overlay') %>
     <div id="loadingContainer">
         <div id="loadingContent">
             <div id="loadSpinnerContainer">
