@@ -6,8 +6,13 @@ const isDev                         = require('./app/assets/js/isdev')
 const path                          = require('path')
 const semver                        = require('semver')
 const url                           = require('url')
+const APPDATAROOT                   = process.env.APPDATA;
+const harionaconfig                 = path.join(APPDATAROOT, 'Hariona Launcher');
 
-// Setup auto updater.
+
+
+
+//app.setPath('userData', harionaconfig)
 function initAutoUpdater(event, data) {
 
     if(data){
