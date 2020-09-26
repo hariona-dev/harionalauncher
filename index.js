@@ -103,7 +103,7 @@ function createWindow() {
         height: 720,
         minWidth: 1280,
         minHeight: 720,
-        icon: getPlatformIcon('SealCircle'),
+        icon: getPlatformIcon('icon'),
         resizable: true,
         frame: false,
         webPreferences: {
@@ -212,7 +212,7 @@ function getPlatformIcon(filename){
             break
     }
 
-    return path.join(__dirname, 'app', 'assets', 'images', `${filename}.${ext}`)
+    return path.join(__dirname, 'app', 'assets', 'images', 'icons', `${filename}.${ext}`)
 }
 
 app.on('ready', createWindow)
