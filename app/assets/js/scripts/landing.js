@@ -661,6 +661,7 @@ function dlAsync(login = true){
                         proc.stdout.on('data', gameStateChange)
                         proc.stdout.removeListener('data', tempListener)
                         proc.stderr.removeListener('data', gameErrorListener)
+                        window.close();
                     }
                 }
 
