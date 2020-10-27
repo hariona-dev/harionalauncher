@@ -6,13 +6,8 @@ const isDev                         = require('./app/assets/js/isdev')
 const path                          = require('path')
 const semver                        = require('semver')
 const url                           = require('url')
-const APPDATAROOT                   = process.env.APPDATA;
-const harionaconfig                 = path.join(APPDATAROOT, 'Hariona Launcher');
 
-
-
-
-//app.setPath('userData', harionaconfig)
+// Setup auto updater.
 function initAutoUpdater(event, data) {
 
     if(data){
@@ -103,7 +98,7 @@ function createWindow() {
         height: 720,
         minWidth: 1280,
         minHeight: 720,
-        icon: getPlatformIcon('icon'),
+        icon: getPlatformIcon('SealCircle'),
         resizable: true,
         frame: false,
         webPreferences: {
@@ -212,7 +207,7 @@ function getPlatformIcon(filename){
             break
     }
 
-    return path.join(__dirname, 'app', 'assets', 'images', 'icons', `${filename}.${ext}`)
+    return path.join(__dirname, 'app', 'assets', 'images', `${filename}.${ext}`)
 }
 
 app.on('ready', createWindow)
