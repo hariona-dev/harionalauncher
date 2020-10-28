@@ -1,0 +1,28 @@
+<div class="settings-container" id="settings-java-executable-panel" style="display: none;">
+    <h1 id="title">Java exécutable</h1>
+
+    <div class="info-container">
+        <p class="title">Information</p>
+        <p class="desc">Cette page permet d'indiquer à hariona l'emplacement de l'exécutable Java.
+            <br><br>Le launcher utilise une version embarquée de Java <i>(Java 8 update 51)</i>, si celui-ci n'est pas déjà installé sur votre ordinateur.
+            <% if(process.platform === 'win32') { %>
+            Cette version est disponible dans le répertoire %appdata%/.hariona/runtime.
+            <br><br>Toutefois, vous pouvez spécifier votre propre exécutable.
+            <br>Celui-ci se trouve très souvent à cet emplacement:
+            <br>C:\Program Files\Java\jre1.8.0_XXX\bin <i>(avec XXX le numéro du build de la version)</i>
+            <br><br>Deux versions de l’exécutable sont disponible dans ce répertoire:
+            <br>- java.exe
+            <br>- javaw.exe
+            <br><br>Par défaut, utilisez javaw.exe.
+            <% } %>
+        </p>
+    </div>
+
+    <div class="settings-flex-container">
+        <input class="textfield" type="text" id="settings-java-executable-textfield" disabled/>
+        <input class="button-select" id="settings-java-executable-select" type="file" <%= process.platform === 'win32' ? 'accept=.exe' : '' %>>
+        <label class="button button-settings" for="settings-java-executable-select" style="margin-top: 10px;">Changer</label>
+    </div>
+
+    <script src="./assets/js/scripts/settings/java-executable.js"></script>
+</div>

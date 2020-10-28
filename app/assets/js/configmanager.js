@@ -7,8 +7,6 @@ const logger = require('./loggerutil')('%c[ConfigManager]', 'color: #a02d2a; fon
 const sysRoot = process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Application Support' : process.env.HOME)
 // TODO change
 const dataPath = path.join(sysRoot, '.hariona')
-
-// Forked processes do not have access to electron, so we have this workaround.
 const launcherDir = process.env.CONFIG_DIRECT_PATH || require('electron').remote.app.getPath('userData')
 
 /**
@@ -40,23 +38,23 @@ exports.setDataDirectory = function(dataDirectory){
 }
 
 const configPath = path.join(exports.getLauncherDirectory(), 'config.json')
-console.log(configPath)
 const configPathLEGACY = path.join(dataPath, 'config.json')
 const firstLaunch = !fs.existsSync(configPath) && !fs.existsSync(configPathLEGACY)
 
 exports.getAbsoluteMinRAM = function(){
     const mem = os.totalmem()
-    return mem >= 6000000000 ? 0.05 : 0.05
+    return mem >= 6000000000 ? 1 : 1
 }
 
 exports.getAbsoluteMaxRAM = function(){
     const mem = os.totalmem()
-    return Math.floor((mem-1000000000)/1000000000)
+    const gT16 = mem-16000000000
+    return Math.floor((mem-1000000000-(gT16 > 0 ? (Number.parseInt(gT16/8) + 16000000000/4) : mem/4))/1000000000)
 }
 
 function resolveMaxRAM(){
     const mem = os.totalmem()
-    return mem >= 8000000000 ? '4G' : (mem >= 6000000000 ? '1G' : '1G')
+    return mem >= 8000000000 ? '1G' : (mem >= 6000000000 ? '1G' : '1G')
 }
 
 function resolveMinRAM(){

@@ -324,10 +324,10 @@ function asyncSystemScan(mcVersion, launchAfter = true){
                 // If the result is null, no valid Java installation was found.
                 // Show this information to the user.
                 setOverlayContent(
-                    'No Compatible<br>Java Installation Found',
-                    'In order to join the community servers, you need a 64-bit installation of Java 8. Would you like us to install a copy? By installing, you accept <a href="http://www.oracle.com/technetwork/java/javase/terms/license/index.html">Oracle\'s license agreement</a>.',
-                    'Install Java',
-                    'Install Manually'
+                    'Java semble ne pas être installé sur votre machine.',
+                    'Souhaitez vous l\'installer?',
+                    'Installer Java.',
+                    'Installer Java manuellement.'
                 )
                 setOverlayHandler(() => {
                     setLaunchDetails('Preparing Java Download..')
@@ -339,10 +339,10 @@ function asyncSystemScan(mcVersion, launchAfter = true){
                     $('#overlayContent').fadeOut(250, () => {
                         //$('#overlayDismiss').toggle(false)
                         setOverlayContent(
-                            'Java is Required<br>to Launch',
-                            'A valid x64 installation of Java 8 is required to launch.<br><br>Please refer to our <a href="https://github.com/dscalzi/HeliosLauncher/wiki/Java-Management#manually-installing-a-valid-version-of-java">Java Management Guide</a> for instructions on how to manually install Java.',
-                            'I Understand',
-                            'Go Back'
+                            'Pour jouer sur le serveur<br>vous deviez avoir java d\'installé sur votre ordinateur.',
+                            'Deux choix s\'offrent à vous<br>Installer Java sur le site officiel en cliquant sur téléchargement java. <br>Ou télécharger la version que le launcher télécharge.',
+                            '<a href="https://www.java.com/fr/download/">Télécharger java.</a>.',
+                            'Retour.'
                         )
                         setOverlayHandler(() => {
                             toggleLaunchArea(false)
@@ -377,7 +377,7 @@ function asyncSystemScan(mcVersion, launchAfter = true){
             if(m.result === true){
 
                 // Oracle JRE enqueued successfully, begin download.
-                setLaunchDetails('Downloading Java..')
+                setLaunchDetails('Téléchargement de Java..')
                 sysAEx.send({task: 'execute', function: 'processDlQueues', argsArr: [[{id:'java', limit:1}]]})
 
             } else {
@@ -385,9 +385,9 @@ function asyncSystemScan(mcVersion, launchAfter = true){
                 // Oracle JRE enqueue failed. Probably due to a change in their website format.
                 // User will have to follow the guide to install Java.
                 setOverlayContent(
-                    'Unexpected Issue:<br>Java Download Failed',
-                    'Unfortunately we\'ve encountered an issue while attempting to install Java. You will need to manually install a copy. Please check out our <a href="https://github.com/dscalzi/HeliosLauncher/wiki">Troubleshooting Guide</a> for more details and instructions.',
-                    'I Understand'
+                    'Erreur de téléchargement..',
+                    'Une erreur est survenue lors du téléchargement.<br>Si le problème persiste demander de l\'aide à un membre du staff merci.',
+                    'Fermer'
                 )
                 setOverlayHandler(() => {
                     toggleOverlay(false)
@@ -521,15 +521,15 @@ function dlAsync(login = true){
     })
     aEx.on('error', (err) => {
         loggerLaunchSuite.error('Error during launch', err)
-        showLaunchFailure('Error During Launch', err.message || 'See console (CTRL + Shift + i) for more details.')
+        showLaunchFailure('Error During Launch', err.message || 'Une erreur est survenue lors du téléchargement.<br>Si le problème persiste demander de l\'aide à un membre du staff merci.')
     })
     aEx.on('close', (code, signal) => {
         if(code !== 0){
             loggerLaunchSuite.error(`AssetExec exited with code ${code}, assuming error.`)
-            showLaunchFailure('Error During Launch', 'See console (CTRL + Shift + i) for more details.')
+            showLaunchFailure('Error During Launch', 'Une erreur est survenue lors du téléchargement.<br>Si le problème persiste demander de l\'aide à un membre du staff merci.')
         }
     })
-
+    
     // Establish communications between the AssetExec and current process.
     aEx.on('message', (m) => {
         if(m.context === 'validate'){
@@ -609,13 +609,13 @@ function dlAsync(login = true){
                     
                     if(m.error.code === 'ENOENT'){
                         showLaunchFailure(
-                            'Download Error',
-                            'Could not connect to the file server. Ensure that you are connected to the internet and try again.'
+                            'Erreur de téléchargement..',
+                            'Une erreur est survenue lors du téléchargement.<br>Si le problème persiste demander de l\'aide à un membre du staff merci.'
                         )
                     } else {
                         showLaunchFailure(
-                            'Download Error',
-                            'Check the console (CTRL + Shift + i) for more details. Please try again.'
+                            'Erreur de téléchargement..',
+                            'Une erreur est survenue lors du téléchargement.<br>Si le problème persiste demander de l\'aide à un membre du staff merci.'
                         )
                     }
 
@@ -661,6 +661,7 @@ function dlAsync(login = true){
                         proc.stdout.on('data', gameStateChange)
                         proc.stdout.removeListener('data', tempListener)
                         proc.stderr.removeListener('data', gameErrorListener)
+                        window.close();
                     }
                 }
 
@@ -708,11 +709,10 @@ function dlAsync(login = true){
                 } catch(err) {
 
                     loggerLaunchSuite.error('Error during launch', err)
-                    showLaunchFailure('Error During Launch', 'Please check the console (CTRL + Shift + i) for more details.')
+                    showLaunchFailure('Une erreur est survenue lors du téléchargement.<br>Si le problème persiste demander de l\'aide à un membre du staff merci.')
 
                 }
             }
-
             // Disconnect from AssetExec
             aEx.disconnect()
 

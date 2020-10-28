@@ -1,33 +1,35 @@
-<div id="settingsContainer" style="display: none;">
-    <div id="settingsContainerLeft">
-        <div id="settingsNavContainer">
-            <div id="settingsNavHeader">
-                <span id="settingsNavHeaderText">options</span>
-            </div>
-            <div id="settingsNavItemsContainer">
-                <div id="settingsNavItemsContent">
-                    <div class="settingsNavDivider"></div>
-                    <button class="settingsNavItem" rSc="settingsTabAccount" id="settingsNavAccount" selected>Compte Mojang</button>
-                    <button class="settingsNavItem" rSc="settingsTabJava">Java</button>
-                    <button class="settingsNavItem" rSc="settingsTabram">Ram</button>
-                    <button class="settingsNavItem" rSc="settingsTabAbout">À propos</button>
-                    <div id="settingsNavContentBottom">
-                        <div class="settingsNavDivider"></div>
-                        <button id="settingsNavDone">Terminé</button>
-                    </div>
+<div id="settings-view" style="display: none;">
+    <div class="settings-panel-left">
+        <div class="settings-container-nav">
+            <div class="nav-items-container">
+                <div class="group">
+                    <p class="title">Paramètres utilisateur</p>
+                    <button class="item settingsTab" id="settings-user-compte-panel-button" rSc="settings-user-compte-panel">Mon compte</button>
+                    <hr>
+                </div>
+                <div class="group">
+                    <p class="title">Paramètres Java</p>
+                    <button class="item settingsTab" id="settings-java-memory-panel-button" rSc="settings-java-memory-panel">Mémoire Ram</button>
+                    <button class="item settingsTab" id="settings-java-executable-panel-button" rSc="settings-java-executable-panel">Java exécutable</button>
+                    <hr>
+                </div>
+                <div class="group">
+                    <button class="item save" id="settings-save-button" style="margin-top: 40px;">Sauvegarder</button>
+                    <hr>
                 </div>
             </div>
         </div>
     </div>
-    <div id="settingsContainerRight">
-        
-        <%- include('settings/about') %>
-        <%- include('settings/account') %>
-        <%- include('settings/java') %>
-        <%- include('settings/launcher') %>
-        <%- include('settings/minecraft') %>
-        <%- include('settings/mods') %>
-        <%- include('settings/ram') %>
+    <div class="settings-panel-right">
+        <!-- User : Compte -->
+        <%- include('settings/user-compte.ejs') %>
+
+        <!-- Java : Memory -->
+        <%- include('settings/java-memory.ejs') %>
+
+        <!-- Java : Executable -->
+        <%- include('settings/java-executable.ejs') %>
+
 
     </div>
     <script src="./assets/js/scripts/settings.js"></script>
