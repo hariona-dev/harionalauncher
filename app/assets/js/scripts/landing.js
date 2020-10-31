@@ -218,36 +218,18 @@ const refreshMojangStatuses = async function(){
     }
 }
 
-const refreshServerStatus = async function(fade = false){
-    loggerLanding.log('Refreshing Server Status')
-    const serv = DistroManager.getDistribution().getServer(ConfigManager.getSelectedServer())
+function refreshServerStatus() {
+    var hariona_server = require('./assets/js/server_status');
+    hariona_server.init('minecraft.hariona.fr', 25565, function(result) {
+        if (hariona_server.online) {
+            $("#server-hariona-players").html(hariona_server.current_players);
+            $("#server-hariona-latency").html(hariona_server.latency);
 
-    let pLabel = ''
-    let pVal = 'serveur en maintenance'
-
-    try {
-        const serverURL = new URL('my://' + serv.getAddress())
-        const servStat = await ServerStatus.getStatus(serverURL.hostname, serverURL.port)
-        if(servStat.online){
-            pLabel = 'PLAYERS-'
-            pVal = /*'PLAYERS-' + */servStat.onlinePlayers + '/' + servStat.maxPlayers
+            $("#server-total-players").html(hariona_server.current_players + " <i class=\"online\"></i>");
         }
-
-    } catch (err) {
-        loggerLanding.warn('Unable to refresh server status, assuming offline.')
-        loggerLanding.debug(err)
-    }
-    if(fade){
-        $('#server_status_wrapper').fadeOut(250, () => {
-            document.getElementById('landingPlayerLabel').innerHTML = pLabel
-            document.getElementById('player_count').innerHTML = pVal
-            $('#server_status_wrapper').fadeIn(500)
-        })
-    } else {
-        document.getElementById('landingPlayerLabel').innerHTML = pLabel
-        document.getElementById('player_count').innerHTML = pVal
-    }
-    
+        else
+            $("#server-total-players").html("0 <i class=\"offline\"></i>");
+    });
 }
 
 refreshMojangStatuses()
