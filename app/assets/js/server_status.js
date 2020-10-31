@@ -1,8 +1,3 @@
-/**
- * hariona Launcher - https://github.com/hariona-Dev/hariona-Launcher
- * Copyright (C) 2020 hariona
- */
-
 const Net = require('net');
 
 address = null;
