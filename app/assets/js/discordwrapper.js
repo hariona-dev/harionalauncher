@@ -8,10 +8,11 @@ let activity
 
 exports.initRPC = function(genSettings, servSettings, initialDetails = 'Waiting for Client..'){
     client = new Client({ transport: 'ipc' })
+    const selectedAcc = ConfigManager.getSelectedAccount();
 
     activity = {
         details: initialDetails,
-        state: 'Payer: ' + servSettings.shortId,
+        state: 'Payer: ' + selectedAcc.displayName,
         largeImageKey: servSettings.largeImageKey,
         largeImageText: servSettings.largeImageText,
         smallImageKey: genSettings.smallImageKey,

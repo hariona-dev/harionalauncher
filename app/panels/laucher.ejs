@@ -1,76 +1,15 @@
 <div id="landingContainer" style="display: none;">
     <img src="assets/images/logo.png" class="logo">
   <br><br><br><br><br><br><br><br><br>
-<div id="right">
-    <div id="rightContainer" style="display: none;">
-        <div id="user_content">
-            <span id="user_text">Username</span>
-            <div id="avatarContainer">
-                <button id="avatarOverlay">Edit</button>
-            </div>
-        </div>
+
+
+
+    <%- include('laucher/user') %>
+    <%- include('laucher/panel-button') %>
+    <%- include('laucher/progress-bar') %>
+    <%- include('laucher/servers-status') %>
+    <%- include('laucher/servers-annouce') %>
+
     </div>
-</div>
-    <div class="home-card">
-    <div class="cardhome3">
-        <div class="imagehariona"></div>
-        <div class="bot_wrapper">
-            <div id="launch_content">
-                <div id="mediaContent">
-                    <div id="internalMedia">
-                        <div class="mediaContainer" id="settingsMediaContainer">
-                            <button class="mediaButton" id="settingsMediaButton">Options</button>
-                            <button class="mediaButton" id="boutiqueMediaButton">Boutique</button>
-                            <button id="launch_button">Play</button>
-                        </div>
-                    </div>
-                  </div>
-            <div id="server_selection_button"></div>
-        </div>
-        <div id="launch_details">
-            <div id="launch_details_left">
-                <span id="launch_progress_label">0%</span>
-                <div class="bot_divider"></div>
-            </div>
-            <div id="launch_details_right">
-                <progress id="launch_progress" value="22" max="100"></progress>
-                <span id="launch_details_text" class="bot_label">Please wait..</span>
-            </div>
-        </div>
-    </div>
-  </div>
-  
-  <div id="launcher-home-panel">
-    <div class="banner-body-sidebar">
-        <div class="block-container servers-status">
-            <div class="block-title">États des serveurs<em id="server-total-players">0<i class="offline"></i></em></div>
-            <div class="block-body">
-                <div class="server">
-                    <div class="server-icon"></div>
-                    <div class="server-text">
-                        <span class="title">hariona</span>
-                        <span class="subtitle">
-                            <b id="server-hariona-players">0</b> Joueurs connectés - <em id="server-hariona-latency">0</em>ms
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="home-card">
-    <div class="cardhome1">
-      <div class="text-annouce">Annonce</div>
-      <br><br>
-          <div class="text-annouce-con">
-              <iframe 
-              src="https://annonce.hariona.fr"
-              width="100%" width="20000"
-              sandbox>
-          </iframe>
-          </div>
-    </div>
-  </div>
   <script src="./assets/js/scripts/landing.js"></script>
-</div>
 </div>

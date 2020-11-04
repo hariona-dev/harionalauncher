@@ -135,6 +135,7 @@ function createWindow() {
     })
 }
 
+
 function createMenu() {
     
     if(process.platform === 'darwin') {

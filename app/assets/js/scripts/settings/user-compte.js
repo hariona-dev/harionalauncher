@@ -1,9 +1,11 @@
 function initSettingsUserCompteTab() {
     const selectedAcc = ConfigManager.getSelectedAccount();
-    //$("#settings-user-compte-displayname-label").html(selectedAcc.displayName);
-   // $("#settings-user-compte-username-label").html(selectedAcc.username);
-   // $("#settings-user-compte-profile").css("background-image", "url('https://mc-heads.net/head/" + selectedAcc.displayName + "')");
+   // $("#profile-user").html(selectedAcc.displayName);
+   // $("#email-user").html(selectedAcc.username);
+    //$("#settings-user-compte-profile").css("background-image", "url('https://mc-heads.net/head/" + selectedAcc.displayName + "')");
 }
+
+
 
 $("#settings-user-logout-button").click(function() {
     setOverlayContent('Se déconnecter',

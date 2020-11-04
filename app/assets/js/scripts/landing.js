@@ -121,28 +121,9 @@ document.getElementById('boutiqueMediaButton').onclick = (e) => {
 }
 
 // Bind avatar overlay button.
-document.getElementById('avatarOverlay').onclick = (e) => {
-    prepareSettings()
-    switchView(getCurrentView(), VIEWS.settings, 500, 500, () => {
-        settingsNavItemListener(document.getElementById('settingsNavAccount'), false)
-    })
-}
+
 
 // Bind selected account
-function updateSelectedAccount(authUser){
-    let username = 'No Account Selected'
-    if(authUser != null){
-        if(authUser.displayName != null){
-            username = authUser.displayName
-        }
-        if(authUser.uuid != null){
-            document.getElementById('avatarContainer').style.backgroundImage = `url('https://crafatar.com/renders/body/${authUser.uuid}')`
-        }
-    }
-    user_text.innerHTML = username
-}
-updateSelectedAccount(ConfigManager.getSelectedAccount())
-
 // Bind selected server
 
 function refreshServerStatus() {
@@ -563,27 +544,23 @@ function dlAsync(login = true){
                     if(GAME_LAUNCH_REGEX.test(data.trim())){
                         toggleLaunchArea(false)
                         if(hasRPC){
-                            DiscordWrapper.updateDetails('Loading game..')
+                            DiscordWrapper.updateDetails('Jouer a hariona!')
+                            }
                         }
                         proc.stdout.on('data', gameStateChange)
                         proc.stdout.removeListener('data', tempListener)
-                        proc.stderr.removeListener('data', gameErrorListener)
-                        window.close();
+                        proc.stderr.removeListener('data', gameErrorListener);
                     }
-                }
+                
 
                 // Listener for Discord RPC.
-                const gameStateChange = function(data){
-                    data = data.trim()
-                    if(SERVER_JOINED_REGEX.test(data)){
-                        DiscordWrapper.updateDetails('Exploring the Realm!')
-                    } else if(GAME_JOINED_REGEX.test(data)){
-                        DiscordWrapper.updateDetails('Jouer a hariona!')
+                const gameStateChange = function(data) {
+                    if (data.trim().match(/OpenAL initialized./i)) 
+                    
                     }
-                }
-
+                
                 const gameErrorListener = function(data){
-                    data = data.trim()
+                    data = data.trim().match(/OpenAL initialized./i)
                     if(data.indexOf('Could not find or load main class net.minecraft.launchwrapper.Launch') > -1){
                         loggerLaunchSuite.error('Game launch failed, LaunchWrapper was not downloaded properly.')
                         showLaunchFailure('Error During Launch', 'The main file, LaunchWrapper, failed to download properly. As a result, the game cannot launch.<br><br>To fix this issue, temporarily turn off your antivirus software and launch the game again.<br><br>If you have time, please <a href="https://github.com/hariona-dev/harionalauncher/issues">submit an issue</a> and let us know what antivirus software you use. We\'ll contact them and try to straighten things out.')
