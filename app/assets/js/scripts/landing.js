@@ -6,6 +6,7 @@ const cp                      = require('child_process')
 const crypto                  = require('crypto')
 const {URL}                   = require('url')
 
+
 // Internal Requirements
 const DiscordWrapper          = require('./assets/js/discordwrapper')
 const ProcessBuilder          = require('./assets/js/processbuilder')
@@ -539,7 +540,9 @@ function dlAsync(login = true){
                         proc.stdout.on('data', gameStateChange)
                         proc.stdout.removeListener('data', tempListener)
                         proc.stderr.removeListener('data', gameErrorListener)
-                        window.close();
+                        window.open()
+                        
+
                     }
                 }
 
