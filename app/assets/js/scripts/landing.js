@@ -8,9 +8,7 @@ const {URL}                   = require('url')
 
 // Internal Requirements
 const DiscordWrapper          = require('./assets/js/discordwrapper')
-const Mojang                  = require('./assets/js/mojang')
 const ProcessBuilder          = require('./assets/js/processbuilder')
-const ServerStatus            = require('./assets/js/server_status')
 
 // Launch Elements
 const launch_content          = document.getElementById('launch_content')
@@ -18,8 +16,6 @@ const launch_details          = document.getElementById('launch_details')
 const launch_progress         = document.getElementById('launch_progress')
 const launch_progress_label   = document.getElementById('launch_progress_label')
 const launch_details_text     = document.getElementById('launch_details_text')
-const server_selection_button = document.getElementById('server_selection_button')
-const user_text               = document.getElementById('user_text')
 
 const loggerLanding = LoggerUtil('%c[Landing]', 'color: #000668; font-weight: bold')
 
@@ -119,12 +115,6 @@ document.getElementById('boutiqueMediaButton').onclick = (e) => {
     prepareSettings()
     switchView(getCurrentView(), VIEWS.boutique)
 }
-
-// Bind avatar overlay button.
-
-
-// Bind selected account
-// Bind selected server
 
 function refreshServerStatus() {
     var hariona_server = require('./assets/js/server_status');
@@ -544,23 +534,27 @@ function dlAsync(login = true){
                     if(GAME_LAUNCH_REGEX.test(data.trim())){
                         toggleLaunchArea(false)
                         if(hasRPC){
-                            DiscordWrapper.updateDetails('Jouer a hariona!')
-                            }
+                            DiscordWrapper.updateDetails('Loading game..')
                         }
                         proc.stdout.on('data', gameStateChange)
                         proc.stdout.removeListener('data', tempListener)
-                        proc.stderr.removeListener('data', gameErrorListener);
+                        proc.stderr.removeListener('data', gameErrorListener)
+                        window.close();
                     }
-                
+                }
 
                 // Listener for Discord RPC.
-                const gameStateChange = function(data) {
-                    if (data.trim().match(/OpenAL initialized./i)) 
-                    
+                const gameStateChange = function(data){
+                    data = data.trim()
+                    if(SERVER_JOINED_REGEX.test(data)){
+                        DiscordWrapper.updateDetails('Exploring the Realm!')
+                    } else if(GAME_JOINED_REGEX.test(data)){
+                        DiscordWrapper.updateDetails('Jouer a hariona!')
                     }
-                
+                }
+
                 const gameErrorListener = function(data){
-                    data = data.trim().match(/OpenAL initialized./i)
+                    data = data.trim()
                     if(data.indexOf('Could not find or load main class net.minecraft.launchwrapper.Launch') > -1){
                         loggerLaunchSuite.error('Game launch failed, LaunchWrapper was not downloaded properly.')
                         showLaunchFailure('Error During Launch', 'The main file, LaunchWrapper, failed to download properly. As a result, the game cannot launch.<br><br>To fix this issue, temporarily turn off your antivirus software and launch the game again.<br><br>If you have time, please <a href="https://github.com/hariona-dev/harionalauncher/issues">submit an issue</a> and let us know what antivirus software you use. We\'ll contact them and try to straighten things out.')
