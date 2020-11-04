@@ -12,35 +12,21 @@
   width: 325px;
 }
 
-.cardhome1{
+.card-annouce{
 background-color: rgb(60, 55, 68);
 font-family: "coves";
 border-radius: 10px;
 padding: 10px 35px;
 text-decoration: none;
 } 
-.cardhome2{
-background-color: rgba(60, 55, 68, 0);
-font-family: "coves";
-border-radius: 10px;
-padding: 101px 35px;
-text-decoration: none;
-}
 
-.cardhome3{
-background-color: #ffffff;
+.card-Button{
+background-color: #ffffff00;
 font-family: "coves";
 border-radius: 10px;
-padding: 20px 100px;
+padding: 20px 50px;
 text-decoration: none;
 text-align: center;
-}
-
-.cardhome4{
-
-font-family: "coves";
-border-radius: 10px;
-text-decoration: none;
 }
 
 
@@ -160,6 +146,7 @@ text-align: left;
 font-size: 15pt;
 }
 
+
 #launcher-home-panel .block-container.servers-status .block-title em {
   position: relative;
   height: 30px;
@@ -224,7 +211,7 @@ font-size: 15pt;
   color: #ffffff;
 }
 
-#launcher-home-panel .block-container.servers-status .server #server-icon {
+#launcher-home-panel .block-container.servers-status .server .server-icon {
   position: absolute;
   top: 1px;
   bottom: 0;
@@ -232,10 +219,10 @@ font-size: 15pt;
   margin: auto 0;
   background: no-repeat center;
 
-  width: 33px;
-  height: 33px;
+  width: 40px;
+  height: 40px;
   background-image: url('../images/icons/icon.png');
-  background-size: 80%;
+  background-size: 100%;
 }
 
 #launcher-home-panel .block-container.servers-status .server .server-text .title {
@@ -254,49 +241,40 @@ font-size: 15pt;
   color: #ff8400;
 }
 
+#launcher-home-panel .block-container.shop-last .deal {
+  position: relative;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  margin: 10px 0;
+  transition: .15s;
+}
+#launcher-home-panel .block-container.shop-last .deal:hover {
+  transform: scale(0.98);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#launcher-home-panel .block-container.shop-last .deal-container {
+  display: flex;
+  cursor: pointer;
+  position: relative;
+  align-items: center;
+  padding: 10px;
+}
+#launcher-home-panel .block-container.shop-last .deal-img {
+  width: 50px;
+  margin-right: 10px;
+  height: auto;
+}
+#launcher-home-panel .block-container.shop-last .deal-details .deal-name {
+  font-size: 15px;
+  letter-spacing: 0.01em;
+  text-shadow: 0 2px 1px rgba(0, 0, 0, 0.1);
+  font-weight: 600;
+  color: #ffffff;
+}
+#launcher-home-panel .block-container.shop-last .deal-details .deal-price {
+  font-size: 13px;
+  text-shadow: 0 2px 1px rgba(0, 0, 0, 0.1);
+  font-weight: 600;
+  color: #F5F696;
+}
