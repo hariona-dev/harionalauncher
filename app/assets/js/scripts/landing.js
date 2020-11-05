@@ -477,8 +477,8 @@ function dlAsync(login = true){
                         clearInterval(progressListener)
                         progressListener = null
                     }
-
                     setLaunchDetails('Preparing to launch..')
+
                     break
             }
         } else if(m.context === 'error'){
@@ -540,9 +540,7 @@ function dlAsync(login = true){
                         proc.stdout.on('data', gameStateChange)
                         proc.stdout.removeListener('data', tempListener)
                         proc.stderr.removeListener('data', gameErrorListener)
-                        window.close()
-                        
-
+                        win.hide()
                     }
                 }
 
@@ -553,6 +551,7 @@ function dlAsync(login = true){
                         DiscordWrapper.updateDetails('Exploring the Realm!')
                     } else if(GAME_JOINED_REGEX.test(data)){
                         DiscordWrapper.updateDetails('Jouer a hariona!')
+                        win.hide()
                     }
                 }
 

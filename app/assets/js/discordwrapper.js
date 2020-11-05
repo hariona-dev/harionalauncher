@@ -9,7 +9,7 @@ let activity
 exports.initRPC = function(genSettings, servSettings, initialDetails = 'Waiting for Client..'){
     client = new Client({ transport: 'ipc' })
     const selectedAcc = ConfigManager.getSelectedAccount();
-
+    
     activity = {
         details: initialDetails,
         state: 'Payer: ' + selectedAcc.displayName,
