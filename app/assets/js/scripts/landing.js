@@ -1,17 +1,11 @@
-/**
- * Script for landing.ejs
- */
-// Requirements
 const cp                      = require('child_process')
 const crypto                  = require('crypto')
 const {URL}                   = require('url')
 
-
-// Internal Requirements
 const DiscordWrapper          = require('./assets/js/discordwrapper')
 const ProcessBuilder          = require('./assets/js/processbuilder')
 
-// Launch Elements
+
 const launch_content          = document.getElementById('launch_content')
 const launch_details          = document.getElementById('launch_details')
 const launch_progress         = document.getElementById('launch_progress')
@@ -20,13 +14,6 @@ const launch_details_text     = document.getElementById('launch_details_text')
 
 const loggerLanding = LoggerUtil('%c[Landing]', 'color: #000668; font-weight: bold')
 
-/* Launch Progress Wrapper Functions */
-
-/**
- * Show/hide the loading area.
- * 
- * @param {boolean} loading True if the loading area should be shown, otherwise false.
- */
 function toggleLaunchArea(loading){
     if(loading){
         launch_details.style.display = 'flex'
@@ -37,45 +24,21 @@ function toggleLaunchArea(loading){
     }
 }
 
-/**
- * Set the details text of the loading area.
- * 
- * @param {string} details The new text for the loading details.
- */
 function setLaunchDetails(details){
     launch_details_text.innerHTML = details
 }
 
-/**
- * Set the value of the loading progress bar and display that value.
- * 
- * @param {number} value The progress value.
- * @param {number} max The total size.
- * @param {number|string} percent Optional. The percentage to display on the progress label.
- */
 function setLaunchPercentage(value, max, percent = ((value/max)*100)){
     launch_progress.setAttribute('max', max)
     launch_progress.setAttribute('value', value)
     launch_progress_label.innerHTML = percent + '%'
 }
 
-/**
- * Set the value of the OS progress bar and display that on the UI.
- * 
- * @param {number} value The progress value.
- * @param {number} max The total download size.
- * @param {number|string} percent Optional. The percentage to display on the progress label.
- */
 function setDownloadPercentage(value, max, percent = ((value/max)*100)){
     remote.getCurrentWindow().setProgressBar(value/max)
     setLaunchPercentage(value, max, percent)
 }
 
-/**
- * Enable or disable the launch button.
- * 
- * @param {boolean} val True to enable, false to disable.
- */
 function setLaunchEnabled(val){
     document.getElementById('launch_button').disabled = !val
 }
@@ -113,35 +76,10 @@ document.getElementById('settingsMediaButton').onclick = (e) => {
 
 // Bind boutique button
 document.getElementById('boutiqueMediaButton').onclick = (e) => {
-    prepareSettings()
     switchView(getCurrentView(), VIEWS.boutique)
 }
 
-function refreshServerStatus() {
-    var hariona_server = require('./assets/js/server_status');
-    hariona_server.init('minecraft.hariona.fr', 25565, function(result) {
-        if (hariona_server.online) {
-            $("#server-hariona-players").html(hariona_server.current_players);
-            $("#server-hariona-latency").html(hariona_server.latency);
 
-            $("#server-total-players").html(hariona_server.current_players + " <i class=\"online\"></i>");
-        }
-        else
-            $("#server-total-players").html("0 <i class=\"offline\"></i>");
-    });
-}
-
-// Server Status is refreshed in uibinder.js on distributionIndexDone.
-
-// Set refresh rate to once every 5 minutes.
-let serverStatusListener = setInterval(() => refreshServerStatus(true), 300000)
-
-/**
- * Shows an error overlay, toggles off the launch area.
- * 
- * @param {string} title The overlay title.
- * @param {string} desc The overlay description.
- */
 function showLaunchFailure(title, desc){
     setOverlayContent(
         title,
@@ -160,12 +98,6 @@ let scanAt
 
 let extractListener
 
-/**
- * Asynchronously scan the system for valid Java installations.
- * 
- * @param {string} mcVersion The Minecraft version we are scanning for.
- * @param {boolean} launchAfter Whether we should begin to launch after scanning. 
- */
 function asyncSystemScan(mcVersion, launchAfter = true){
 
     setLaunchDetails('Please wait..')
@@ -508,15 +440,6 @@ function dlAsync(login = true){
 
             let allGood = true
 
-            // If these properties are not defined it's likely an error.
-            // if(m.result.forgeData == null || m.result.versionData == null){
-            //     loggerLaunchSuite.error('Error during validation:', m.result)
-
-            //     loggerLaunchSuite.error('Error during launch', m.result.error)
-            //     showLaunchFailure('Error During Launch', 'Please check the console (CTRL + Shift + i) for more details.')
-
-            //     allGood = false
-            // }
 
             forgeData = m.result.forgeData
             versionData = m.result.versionData
@@ -540,7 +463,7 @@ function dlAsync(login = true){
                         proc.stdout.on('data', gameStateChange)
                         proc.stdout.removeListener('data', tempListener)
                         proc.stderr.removeListener('data', gameErrorListener)
-                        win.hide()
+                        //win.show()
                     }
                 }
 
