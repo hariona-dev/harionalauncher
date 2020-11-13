@@ -12,7 +12,6 @@
     <link type="text/css" rel="stylesheet" href="./assets/css/overlay.css">
     <link type="text/css" rel="stylesheet" href="./assets/css/settings.css">
     <link type="text/css" rel="stylesheet" href="./assets/css/welcome.css">
-    <link type="text/css" rel="stylesheet" href="./assets/css/update.css">
     <style>
         body {
             /*background: url('assets/images/backgrounds/<%=bkid%>.jpg') no-repeat center center fixed;*/
@@ -37,7 +36,6 @@
     <%- include('panels/frame') %>
     <div id="main">
         <%- include('panels/welcome') %>
-        <%- include('panels/settings/update') %>
         <%- include('panels/login') %>
         <%- include('panels/settings') %>
         <%- include('panels/boutique') %>
@@ -45,11 +43,11 @@
     </div>
     <%- include('panels/overlay') %>
     <div id="loadingContainer">
-        <div id="loadingContent">
+        <!--<div id="loadingContent">
             <div id="loadSpinnerContainer">
                 <img id="loadCenterImage" src="assets/images/icons/icon.png">
             </div>
         </div>
-    </div>
+    </div>-->
 </body>
 </html>

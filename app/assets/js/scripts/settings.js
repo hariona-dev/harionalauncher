@@ -29,7 +29,6 @@ function prepareSettings(tab = 'settings-user-compte-panel') {
     initSettingsUserCompteTab();
     prepareJavaTab();
     initSettingsJavaExecutableTab();
-    prepareUpdateTab();
 
     var navItems = $(".selected");
     if (navItems.hasClass('settingsTab')) {
@@ -77,7 +76,3 @@ function savesSettings() {
     ConfigManager.save();
     switchView(getCurrentView(), VIEWS.landing);
 }
-
-document.getElementById('home2').addEventListener('click', e => {
-    switchView(VIEWS.update, VIEWS.landing)
-})

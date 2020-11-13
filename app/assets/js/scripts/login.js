@@ -241,7 +241,7 @@ loginButton.addEventListener('click', () => {
         return
     }
     AuthManager.addAccount(loginUsername.value, loginPassword.value).then((value) => {
-        updateSelectedAccount(value)
+        //updateSelectedAccount(value)
         loginButton.innerHTML = loginButton.innerHTML.replace(Lang.queryJS('login.loggingIn'), Lang.queryJS('login.success'))
         $('.circle-loader').toggleClass('load-complete')
         $('.checkmark').toggle()

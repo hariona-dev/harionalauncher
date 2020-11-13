@@ -19,7 +19,6 @@ const VIEWS = {
     login: '#loginContainer',
     boutique: '#boutiqueContainer',
     settings: '#settings-view',
-    update: '#settingsTabUpdate',
     welcome: '#welcomeContainer'
     
 }
@@ -88,8 +87,8 @@ function showMainUI(data){
             $(VIEWS.welcome).fadeIn(1000)
         } else {
             if(isLoggedIn){
-                currentView = VIEWS.update
-                $(VIEWS.update).fadeIn(1000)
+                currentView = VIEWS.landing
+                $(VIEWS.landing).fadeIn(1000)
             } else {
                 currentView = VIEWS.login
                 $(VIEWS.login).fadeIn(1000)
